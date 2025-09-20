@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="system">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页 - ZiJin A.I.S.C.</title>
+    <link rel="icon" href="assets/images/icon/logo32x32.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">ZiJin <span>A.I.S.C.</span></div>
+                <ul class="nav-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i> 首页</a></li>
+                    <li><a href="pages/past-event.html"><i class="fas fa-trophy"></i> 往届比赛</a></li>
+                    <li><a href="pages/hall-of-fame.html"><i class="fas fa-crown"></i> 名人堂</a></li>
+                    <li><a href="pages/team.html"><i class="fas fa-users"></i> 主办方团队</a></li>
+                    <li>
+                        <button class="theme-toggle" id="themeToggle" title="切换主题">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('assets/images/index/tp1.png');"></div>
+            <div class="carousel-item" style="background-image: url('assets/images/index/tp2.png');"></div>
+            <div class="carousel-item" style="background-image: url('assets/images/index/tp3.png');"></div>
+            <div class="carousel-item" style="background-image: url('assets/images/index/tp4.png');"></div>
+            <div class="carousel-item" style="background-image: url('assets/images/index/tp5.png');"></div>
+        </div>
+
+        <div class="carousel-controls">
+            <div class="carousel-indicators">
+                <div class="carousel-indicator active" data-index="0"></div>
+                <div class="carousel-indicator" data-index="1"></div>
+                <div class="carousel-indicator" data-index="2"></div>
+                <div class="carousel-indicator" data-index="3"></div>
+                <div class="carousel-indicator" data-index="4"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="main-content">
+            <section class="articles">
+                <div class="scoreboard-container animated">
+                    <div class="scoreboard-header">
+                        <h2><i class="fas fa-list-ol"></i> 赛事计分板</h2>
+                        <div class="scoreboard-filters">
+                            <div class="filter-group">
+                                <label for="statusFilter">比赛状态</label>
+                                <select id="statusFilter" class="filter-select">
+                                    <option value="all">全部状态</option>
+                                    <option value="not-started">未开赛</option>
+                                    <option value="in-progress">比赛中</option>
+                                    <option value="completed">已完赛</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label for="playerFilter">选手ID</label>
+                                <input type="text" id="playerFilter" class="filter-input" placeholder="输入选手ID">
+                            </div>
+                            <div class="filter-group">
+                                <label for="teamFilter">队伍名称</label>
+                                <input type="text" id="teamFilter" class="filter-input" placeholder="输入队伍名称">
+                            </div>
+                        </div>
+                    </div>
+
+                    <table class="scoreboard-table">
+                        <thead>
+                            <tr>
+                                <th data-sort="id">选手ID</th>
+                                <th data-sort="team">队伍</th>
+                                <th data-sort="time">比赛时间</th>
+                                <th data-sort="status">状态</th>
+                                <th data-sort="score">最终得分</th>
+                            </tr>
+                        </thead>
+                        <tbody id="scoreboard-body"></tbody>
+                    </table>
+                </div>
+
+                <article class="article-card animated">
+                    <div class="tag featured">活动进行中</div>
+                    <h2>紫金杯#3 - 赛事进行中</h2>
+                    <div class="meta">
+                        <span><i class="far fa-calendar"></i> 2025年8月24日</span>
+                        <span class="category">赛事规则</span>
+                    </div>
+                    <p>第三期紫金杯赛事正在火热进行中，参赛选手们正在为最终冠军展开激烈角逐。</p>
+                    <a href="pages/rules/Zijin-3.html" class="read-more">查看详情 <i class="fas fa-arrow-right"></i></a>
+                </article>
+
+                <article class="article-card animated">
+                    <div class="tag">活动已结束</div>
+                    <h2>紫金杯#2</h2>
+                    <div class="meta">
+                        <span><i class="far fa-calendar"></i> 2025年1月10日</span>
+                        <span class="category">赛事规则</span>
+                    </div>
+                    <p>第二期紫金杯赛事规则出炉</p>
+                    <a href="pages/rules/Zijin-2.html" class="read-more">查看详情 <i class="fas fa-arrow-right"></i></a>
+                </article>
+
+                <article class="article-card animated">
+                    <h2>赛事组通讯#0201</h2>
+                    <div class="meta">
+                        <span><i class="far fa-calendar"></i> 2025年8月20日</span>
+                        <span class="category">制作组通讯</span>
+                    </div>
+                    <p>本期通讯包含赛事最新进展、规则优化说明以及选手精彩操作集锦。</p>
+                    <a href="#" class="read-more">阅读全文 <i class="fas fa-arrow-right"></i></a>
+                </article>
+            </section>
+
+            <aside class="sidebar">
+                <div class="sidebar-widget about-widget animated">
+                    <h3>关于我们</h3>
+                    <p>不只由杭州市学军中学紫金港学生主办，面向全杭州市高中生的<b><u>明日方舟集成战略</u></b></p>
+                </div>
+
+                <div class="sidebar-widget categories animated">
+                    <h3>最新动态</h3>
+                    <ul>
+                        <li><a href="pages/rules/Zijin-3.html">赛事规则 <span class="tag">更新</span></a></li>
+                        <li><a href="#">赛事组通讯 <span class="tag">新</span></a></li>
+                        <li><a href="assets/images/other/xXDvx.JPG">当期活动报名</a></li>
+                        <li><a href="#">前线围观 <span class="tag">直播中</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget animated">
+                    <h3>关注我们</h3>
+                    <div class="social-links">
+                        <a href="assets/images/other/groupvx.JPG" title="微信赛事群"><i class="fab fa-weixin"></i></a>
+                        <a href="assets/images/other/xXDqq.png" title="QQ主办方个人账号"><i class="fab fa-qq"></i></a>
+                        <a href="https://space.bilibili.com/1488722556?spm_id_from=333.337.0.0" title="Bilibili"><i class="fab fa-bilibili"></i></a>
+                    </div>
+                    <p style="text-align: center; margin-top: 20px; font-size: 0.9rem;">
+                        获取最新赛事资讯和精彩内容
+                    </p>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-widget">
+                    <h4>关于本站</h4>
+                    <p>一群埃及的年轻人打造的赛事平台</p>
+                </div>
+
+                <div class="footer-widget">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="pages/team.html"><i class="fas fa-chevron-right"></i> 联系方式</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> 赛事规则</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> 常见问题FAQs</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>名人堂 - ZiJin A.I.S.C.</title>
+    <link rel="icon" href="../assets/images/icon/logo32x32.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/figure.css">
+    <link rel="stylesheet" href="../assets/css/common.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">ZiJin <span>A.I.S.C.</span></div>
+                <ul class="nav-links">
+                    <li><a href="../index.html"><i class="fas fa-home"></i> 首页</a></li>
+                    <li><a href="../pages/past-event.html"><i class="fas fa-trophy"></i> 往届比赛</a></li>
+                    <li><a href="../pages/hall-of-fame.html"><i class="fas fa-crown"></i> 名人堂</a></li>
+                    <li><a href="../pages/team.html"><i class="fas fa-users"></i> 主办方团队</a></li>
+                    <li>
+                        <button class="theme-toggle" id="themeToggle" title="切换主题">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content flex-container">
+            <section class="hall">
+                <div class="hall-header">
+                    <h1><i class="fas fa-crown"></i> 名人堂</h1>
+                    <p>这里展示历届紫金杯集成战略赛事中表现优异的选手</p>
+                </div>
+
+                <div class="figure-section">
+                    <br>
+                    <div class="figure-s">
+                        <!-- 小卡片 -->
+                        <div class="small-card" data-card-id="P02">
+                            <div class="small-card-face">
+                                <div class="avatar-placeholder">
+                                    <img class="member-avatar">
+                                </div>
+                            </div>
+                            <div class="small-card-info">
+                                <h3>你的洛</h3>
+                                <p>蓝图测绘分队</p>
+                                <div class="score">初赛最高分</div>
+                            </div>
+                        </div>
+                        
+                        <div class="small-card" data-card-id="P01">
+                            <div class="small-card-face">
+                                <div class="avatar-placeholder">
+                                    <img class="member-avatar">
+                                </div>
+                            </div>
+                            <div class="small-card-info">
+                                <h3>Dialectic</h3>
+                                <p>香澄蜜柑仙贝</p>
+                                <div class="score">决赛唯一幸存</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="sidebar slim-sidebar">
+                <div class="sidebar-widget about-widget animated">
+                    <h3>关于我们</h3>
+                    <p>不只由杭州市学军中学紫金港学生主办，面向全杭州市高中生的<b><u>明日方舟集成战略</u></b></p>
+                </div>
+            
+                <div class="sidebar-widget categories animated">
+                    <h3>往届赛事</h3>
+                    <ul>
+                        <li><a href="#">紫金杯#4<span class="tag">2026.1</span></a></li>
+                        <li><a href="#">紫金杯#3<span class="tag">2025.7</span></a></li>
+                        <li><a href="#">紫金杯#2<span class="tag">2025.1</span></a></li>
+                        <li><a href="#">紫金杯#1<span class="tag">2024.7</span></a></li>
+                    </ul>
+                </div>
+            
+                <div class="sidebar-widget animated">
+                    <h3>关注我们</h3>
+                    <div class="social-links">
+                        <a href="#" title="微信赛事群"><i class="fab fa-weixin"></i></a>
+                        <a href="#" title="QQ主办方个人账号"><i class="fab fa-qq"></i></a>
+                        <a href="#" title="Bilibili"><i class="fab fa-bilibili"></i></a>
+                    </div>
+                    <p style="text-align: center; margin-top: 20px; font-size: 0.9rem;">
+                        获取最新赛事资讯和精彩内容
+                    </p>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- 大卡片模态框 -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="large-card-modal">
+            <button class="close-modal" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="large-card-bg">
+                <div class="large-card-face">
+                    <div class="avatar-placeholder">
+                        <img class="member-avatar" id="modalMemberAvatar">
+                    </div>
+                </div>
+            </div>
+
+            <div class="large-card-content">
+                <h3 class="large-card-name" id="modalName">选手姓名</h3>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">队伍:</span>
+                        <span class="info-value" id="modalTeam">队伍名称</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">得分:</span>
+                        <span class="info-value" id="modalScore">0分</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">赛事:</span>
+                        <span class="info-value" id="modalEvent">紫金杯#4 - 2025年8月</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">名言:</span>
+                        <span class="info-value" id="modalQuote">选手名言</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-widget">
+                    <h4>关于本站</h4>
+                    <p>一群埃及的年轻人打造的赛事平台</p>
+                </div>
+    
+                <div class="footer-widget">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> 联系方式</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> 赛事规则</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> 常见问题FAQs</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/hall-of-fame.js"></script>
+    <script src="../assets/js/common.js"></script>
+</body>
+
+</html>

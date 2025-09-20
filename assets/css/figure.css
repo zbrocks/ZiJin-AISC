@@ -1,0 +1,246 @@
+/* 更新后的hall-of-fame.css */
+/* ===== 主内容区布局 ===== */
+.main-content {
+    margin-top: 2rem;
+}
+
+/* ===== 名人堂头部 ===== */
+.hall-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.hall-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hall-header p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+/* 头像容器优化 */
+.small-card-face {
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+/* 添加装饰效果 */
+.personal-avatar::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    border: 2px solid var(--current-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.small-card:hover .personal-avatar::after {
+    opacity: 0.5;
+}
+
+.figure-section {
+    margin-bottom: 2.5rem;
+}
+
+.figure-section h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.figure-s {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.honorable-mentions {
+    margin-top: 3rem;
+}
+
+.mention-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* ===== 小卡片特定样式 ===== */
+.small-card {
+    composes: card from 'common.css';
+    /* 继承通用卡片样式 */
+    padding: 1.2rem;
+    cursor: pointer;
+    width: 180px;
+    text-align: center;
+    background-color: var(--current-card-bg);
+    border-radius: 16px
+}
+
+.small-card-face {
+    margin-bottom: 1rem;
+}
+
+.small-card .avatar-placeholder {
+    width: 70px;
+    height: 70px;
+    font-size: 1.5rem;
+    margin: 0 auto;
+}
+
+.small-card-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--current-text);
+}
+
+.small-card-info p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.score .event {
+    font-weight: bold;
+    color: var(--current-primary);
+    font-size: 1.2rem;
+}
+
+/* ===== 模态框样式 ===== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.large-card-modal {
+    composes: card from 'common.css';
+    /* 继承通用卡片样式 */
+    width: 90%;
+    max-width: 500px;
+    overflow: hidden;
+    position: relative;
+    transform: scale(0.9);
+    opacity: 0;
+    transition: all 0.3s ease;
+    padding: 0;
+    /* 覆盖卡片内边距 */
+    border-radius: 16px;
+}
+
+.modal-overlay.active .large-card-modal {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.close-modal:hover {
+    background: rgba(0, 0, 0, 0.4);
+    transform: rotate(90deg);
+}
+
+.large-card-bg {
+    height: 150px;
+    background: linear-gradient(135deg, var(--current-primary), #4A00E0);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.large-card-face {
+    position: absolute;
+    bottom: -50px;
+}
+
+.large-card-face .avatar-placeholder {
+    width: 100px;
+    height: 100px;
+    border: 4px solid var(--current-card-bg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.large-card-content {
+    padding: 4rem 2rem 2rem;
+    background-color: var(--current-card-bg);
+}
+
+.large-card-name {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--current-text);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.info-item {
+    display: flex;
+    border-bottom: 1px solid var(--current-border);
+    padding-bottom: 0.8rem;
+}
+
+.info-label {
+    font-weight: 600;
+    min-width: 80px;
+    color: var(--current-primary);
+}
+
+.info-value {
+    flex-grow: 1;
+}
+
+/* 更新后的hall-of-fame.css */
+/* ===== 主内容区布局 ===== */
+.main-content {
+    margin-top: 2rem;
+}
+
+.hall {
+    flex: 0 0 80%;
+    /* 主内容区占80%宽度 */
+}
+
+/* 其他样式保持不变... */
