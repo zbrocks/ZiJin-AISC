@@ -291,7 +291,7 @@
 
 .hero-carousel {
     position: relative;
-    height: 50vh;
+    height: 60vh;
     overflow: hidden;
     margin-bottom: 3rem;
     border-radius: 0 0 var(--border-radius) var(--border-radius);
