@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 添加页面加载动画
     document.querySelector('.error-card').style.opacity = '0';
-    document.querySelector('.error-suggestions').style.opacity = '0';
     
     setTimeout(() => {
         document.querySelector('.error-card').style.transition = 'opacity 0.8s ease-in-out';
