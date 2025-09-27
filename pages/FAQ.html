@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="system">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常见问题 - ZiJin A.I.S.C.</title>
+    <link rel="shortcut icon" href="../assets/images/icons/logo32x32.png" type="image/png" sizes="32x32">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <link rel="stylesheet" href="../assets/css/faq.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">ZiJin <span>A.I.S.C.</span></div>
+                <ul class="nav-links">
+                    <li><a href="../index.html"><i class="fas fa-home"></i> 首页</a></li>
+                    <li><a href="past-event.html"><i class="fas fa-trophy"></i> 往届比赛</a></li>
+                    <li><a href="hall-of-fame.html"><i class="fas fa-crown"></i> 名人堂</a></li>
+                    <li><a href="team.html"><i class="fas fa-users"></i> 主办方团队</a></li>
+                    <li><a href="FAQ.html" class="active"><i class="fas fa-question-circle"></i> 常见问题</a></li>
+                    <li>
+                        <button class="theme-toggle" id="themeToggle" title="切换主题">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="page-header animated">
+            <h1><i class="fas fa-question-circle"></i> 常见问题 FAQs</h1>
+            <p>关于紫金杯赛事的常见问题解答</p>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-sidebar animated">
+                <div class="faq-search">
+                    <input type="text" id="faqSearch" placeholder="搜索问题..." class="search-input">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+            </div>
+
+            <div class="faq-content animated">
+                <div class="loading-spinner" id="loadingSpinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>正在加载FAQ内容...</p>
+                </div>
+                <div class="faq-list" id="faqList" style="display: none;">
+                    <!-- FAQ内容将通过JavaScript动态加载 -->
+                </div>
+                <div class="error-message" id="errorMessage" style="display: none;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>加载FAQ内容时出现错误，请刷新页面重试。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-widget">
+                    <h4>关于本站</h4>
+                    <p>一群埃及的年轻人打造的赛事平台</p>
+                </div>
+
+                <div class="footer-widget">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="team.html"><i class="fas fa-chevron-right"></i> 联系方式</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> 赛事规则</a></li>
+                        <li><a href="FAQ.html"><i class="fas fa-chevron-right"></i> 常见问题FAQs</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/common.js"></script>
+    <script src="../assets/js/faq.js"></script>
+</body>
+
+</html>
