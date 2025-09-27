@@ -33,11 +33,11 @@ document.addEventListener('DOMContentLoaded', function() {
         this.style.boxShadow = '0 7px 20px rgba(255, 107, 107, 0.4)';
     });
     
-    // 添加页面加载动画
-    // document.querySelector('.error-card').style.opacity = '0';
+    添加页面加载动画
+    document.querySelector('.error-card').style.opacity = '0';
     
-    // setTimeout(() => {
-    //     document.querySelector('.error-card').style.transition = 'opacity 0.8s ease-in-out';
-    //     document.querySelector('.error-card').style.opacity = '1';
-    // }, 100);
+    setTimeout(() => {
+        document.querySelector('.error-card').style.transition = 'opacity 0.8s ease-in-out';
+        document.querySelector('.error-card').style.opacity = '1';
+    }, 100);
 });
