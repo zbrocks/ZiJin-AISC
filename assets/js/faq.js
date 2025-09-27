@@ -24,7 +24,7 @@ class FAQManager {
     async loadFAQData() {
         try {
             // 读取FAQs.md文件
-            const response = await fetch('../FAQs.md');
+            const response = await fetch('/assets/FAQs.md');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
