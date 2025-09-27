@@ -484,3 +484,7 @@ footer {
     background-color: var(--current-attention);
     border-radius: 4px;
 }
+
+ol.h {
+    text-indent: 30px;
+}
