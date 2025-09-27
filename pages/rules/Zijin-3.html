@@ -104,83 +104,359 @@
                     <h3><i class="fas fa-gamepad"></i> 游戏规则</h3>
                     <p>比赛主题为《明日方舟》集成战略模式"萨卡兹的无终奇语""探索者的银凇止境"</p>
                     <ul>
-                        <li>所有选手使用相同起始干员阵容</li>
-                        <li>每轮比赛随机生成地图和敌人配置</li>
-                        <li>选手需完成至少5个关卡</li>
-                        <li>比赛过程中允许暂停，但总暂停时间不得超过10分钟</li>
+                        <li>该赛季举办形式为团队赛，四⼈为⼀队（分别为“深度坍缩者”、“创想家”、“讲述者”、“神⼈”）报名队伍达到五⽀即开赛，上限为⼗⽀</li>
+                        <li>团队总分为个⼈得分加权后之和，并以团队总分⾼低排名。</li>
+                        <li>比赛形式</li>
+                        <ul>
+                            <li>团队由四⼈组成： <strong>“讲述者” “创想家” “神⼈” “深度坍缩者”</strong></li>
+                            <li><strong>“神⼈”</strong> 必须进⾏直播，其他⼈可以上报开局时间给主办⽅，并录制开局的前五分钟与记录回溯，或者上报直播时间</li>
+                            <li>团队总分为个⼈得分之和，并以团队总分⾼低排名</li>
+                            <li>除了<strong>“神⼈”</strong> 外，其他选⼿可提前招募完⼲员，即零层进⼊地图之前开始直播，录屏要从<strong>“开始探索”</strong>为起点</li>
+                        </ul>
+                        <li>基础规则：</li>
+                        <div class="highlight"><i class="fas fa-exclamation-circle"></i>
+                            违反标⻩⾏规则，选⼿所在队伍成绩⽆效。
+                        </div>
+                        <ul>
+                            <li><strong>“神⼈”</strong></li>
+                            <ul>
+                                <li>N9固定</li>
+                                <li class="attention">只能 使⽤ “专业⼈⼠分队”，必须直播</li>
+                                <li>可以（不强制）使⽤ “随⼼所欲” 开局</li>
+                                <li class="attention">禁⽌ 通过烧⽔三选⼀获得⾮热⽔壶藏品</li>
+                                <li>必须为每队⾸发</li>
+                                <ul>
+                                    <li><strong>“神⼈”</strong> 临时招募的 六星⼲员 可以被 <strong>“创想家” “深度坍缩者”</strong> 重复抓取</li>
+                                    <ul>
+                                        <li>例如 <strong>“神⼈”</strong> 临时招募到了 伊内丝 则 <strong>“创想家” “深度坍缩者”</strong> 可⼀起抓取 伊内丝</li>
+                                        <li>但 维什戴尔 和 新约能天使 除外</li>
+                                    </ul>
+                                </ul>
+                                <li class="attention">禁⽌ 拾取藏品 ⽆主的回忆、罗德之⻔</li>
+                                <li class="attention">禁⽌ 招募⾮临时招幕六星⼲员</li>
+                                <li>⼀层第⼀个 不期⽽遇 节点若不是“相遇”可以重开（次数不限）</li>
+                            </ul>
+                            <li><strong>“深度坍缩者”</strong></li>
+                            <ul>
+                                <li>N15固定</li>
+                                <li>可以使⽤ “探索者的银凇⽌境” 的任意分队，若使⽤<strong>“⽣活⾄上分队”</strong>必须直播开局</li>
+                                <li class="attention">禁⽌ 通过烧⽔三选⼀获得⾮热⽔壶藏品</li>
+                                <li class="attention">若使⽤“随⼼所欲”开局，必须直播开局</li>
+                                <li class="attention">除<strong>“神⼈”</strong>所抓六星⼲员外所使⽤的六星⼲员与<strong>“创想家”</strong>不重复</li>
+                                    <ul class="attention">
+                                        <li>但 维什戴尔 和 新约能天使 最多抓取⼀次</li>
+                                    </ul>
+                                <li>⼆层开始前可以重开⼀次<strong>（⽣活⾄上分队除外）</strong></li>
+                            </ul>
+                            <li><strong>“创想家”</strong></li>
+                            <ul>
+                                <li>N16固定</li>
+                                <li class="attention">可以使⽤ “萨卡兹的⽆终奇语“ 中除去“蓝图测绘分队”和“专业⼈⼠分队”的任意分队</li>
+                                <ul class="attention">
+                                    <li>但与<strong>“讲述者”</strong>的分队禁⽌重复</li>
+                                    <li>如使⽤“异想天开分队”，必须进⾏直播</li>
+                                </ul>
+                                <li>禁⽌ 通过烧⽔三选⼀获得⾮热⽔壶藏品</li>
+                                <li>开局主⼒ 与 “深度坍缩者” 不重复</li>
+                                <li class="attention">若使⽤“随⼼所欲”开局，必须直播开局</li>
+                                <li>除<strong>“神⼈”</strong>所抓六星⼲员外所使⽤的六星⼲员与<strong>“深度坍缩者”</strong>不重复</li>
+                                    <ul class="attention">
+                                        <li>但 维什戴尔 和 新约能天使 最多使⽤⼀次</li>
+                                    </ul>
+                                <li>在“相遇”事件中必须选取“死仇时代的恨意”</li>
+                                <li class="attention">禁⽌ 拾取藏品 ⽆主的回忆、罗德之⻔</li>
+                                <li class="attention">禁⽌ 在 失与得节点 中选择 “⼀个⽅盒” 选项</li>
+                                <li>⼀层第⼀个 不期⽽遇 节点若不是“相遇”可以重开（次数不限）</li>
+                            </ul>
+                            <li><strong>“讲述者”</strong></li>
+                            <ul>
+                                <li>N12固定</li>
+                                <li>可以使⽤“萨卡兹的⽆终奇语“中除去“蓝图测绘分队”和⼀“专业⼈⼠分队”的任意分队</li>
+                                <ul>
+                                    <li>但与<strong>“创想家”</strong>的分队禁⽌重复</li>
+                                    <li class="attention">如使⽤“异想天开分队”，必须进⾏直播</li>
+                                </ul>
+                                <li>禁⽌ 通过烧⽔三选⼀获得⾮热⽔壶藏品</li>
+                                <li>开局主⼒与<strong>“深度坍缩者” “创想家”</strong>均不重复</li>
+                                <li class="attention">若使⽤“随⼼所欲”开局，必须直播开局</li>
+                                <li>在“相遇”事件中必须选取“美愿时代的留恋”</li>
+                                <li class="attention">禁⽌ 抓取⼲员 维什戴尔</li>
+                                <li class="attention">禁⽌ 拾取藏品 ⽆主的回忆、罗德之⻔</li>
+                                <li class="attention">禁⽌ 在 失与得节点 中选择 “⼀个⽅盒” 选项</li>
+                                <li>⼀层第⼀个 不期⽽遇 节点若不是“相遇”可以重开（次数不限）</li>
+                            </ul>
+                            <p>注：开局主⼒->指三张招募券中星级最⾼的⼲员，若存在多个则均为主⼒⼲员</p>
+                        </ul>
+                        <li>其他规则：</li>
+                        <ul>
+                            <li>每队的<strong>“讲述者” “创想家” “神⼈”</strong>共⽤ 200 源⽯锭， “深度坍缩者” 独享 70 锭</li>
+                            <ul>
+                                <li>计算⽅式为队伍中每位选⼿在开局前和结束后前瞻投资系统中的源⽯锭余额差值之和，每超出1锭，在该队总分减去 50 分</li>
+                            </ul>
+                            <li>禁⽌ 使⽤外挂或恶性BUG</li>
+                        </ul>
                     </ul>
                     <div class="highlight">
-                        <p><i class="fas fa-exclamation-circle"></i> 重要提示：比赛全程需开启屏幕录制功能，以便赛事裁判审查比赛过程。</p>
+                        <p><i class="fas fa-exclamation-circle"></i> 重要提示：直播选手比赛全程需开启屏幕录制功能</p>
                     </div>
                 </article>
 
                 <article id="scoring" class="rule-card card">
                     <h3><i class="fas fa-star"></i> 计分方式</h3>
+                    <p><strong>个人分</strong>= ( 局内结算 + 加算区间 ) * 乘算区间，<strong>“深度坍缩者”</strong> 结算时，局内结算 * 1.3</p>
+                    <p><strong>团队分</strong>= 全体队员总分 + 加分项 - 扣分项</p>
                     <p>比赛采用综合评分制，评分标准如下：</p>
-                    <table>
+                    <div id="SARKAZ">
+                        <table id="SARKAZ boss">
+                            <thead>
+                                <tr>
+                                    <th>险路恶敌</th>
+                                    <th>基础</th>
+                                    <th>混乱</th>
+                                    <th>备注</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>紧急授课</td>
+                                    <td>0</td>
+                                    <td>10</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>思维矫正</td>
+                                    <td>150</td>
+                                    <td>170</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>朝谒</td>
+                                    <td>100</td>
+                                    <td>110</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>魂灵朝谒</td>
+                                    <td>200</td>
+                                    <td>220</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>圣城(神人专属)</td>
+                                    <td>50</td>
+                                    <td>50</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>授法</td>
+                                    <td>100</td>
+                                    <td>130</td>
+                                    <td>击杀奎隆+150</td>
+                                </tr>
+                                <tr>
+                                    <td>滚动授法</td>
+                                    <td>150</td>
+                                    <td>170</td>
+                                    <td>击杀奎隆+200</td>
+                                </tr>
+                                <tr>
+                                    <td>不容拒绝1</td>
+                                    <td>200</td>
+                                    <td>260</td>
+                                    <td>无漏+30</td>
+                                </tr>
+                                <tr>
+                                    <td>不容拒绝2</td>
+                                    <td>210</td>
+                                    <td>270</td>
+                                    <td>无漏+30</td>
+                                </tr>
+                                <tr>
+                                    <td>不容拒绝3</td>
+                                    <td>350</td>
+                                    <td>450</td>
+                                    <td>无漏+50</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table id="SARKAZ normal">
+                            <thead>
+                                <tr>
+                                    <th>一般作战</th>
+                                    <th>紧急作战</th>
+                                    <th>无漏</th>
+                                    <th>一般作战</th>
+                                    <th>紧急作战</th>
+                                    <th>无漏</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>洞天福地</td>
+                                    <td>100</td>
+                                    <td>100</td>
+                                    <td>"外道"</td>
+                                    <td>70</td>
+                                    <td>70</td>
+                                </tr>
+                                <tr>
+                                    <td>建制</td>
+                                    <td>60</td>
+                                    <td>80</td>
+                                    <td>莱茵卫士</td>
+                                    <td>60</td>
+                                    <td>80</td>
+                                </tr>
+                                <tr>
+                                    <td>谋求共识</td>
+                                    <td>50</td>
+                                    <td>50</td>
+                                    <td>神圣的渴求</td>
+                                    <td>50</td>
+                                    <td>50</td>
+                                </tr>
+                                <tr>
+                                    <td>神出鬼没</td>
+                                    <td>40</td>
+                                    <td>60</td>
+                                    <td>争议频发</td>
+                                    <td>40</td>
+                                    <td>60</td>
+                                </tr>
+                                <tr>
+                                    <td>混沌</td>
+                                    <td>30</td>
+                                    <td>30</td>
+                                    <td>假想对冲</td>
+                                    <td>5</td>
+                                    <td>5</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="SAMI">
+                        <table id="SAMI boss">
                         <thead>
                             <tr>
-                                <th>评分项目</th>
-                                <th>权重</th>
-                                <th>说明</th>
+                                <th>险路恶敌</th>
+                                <th>加分</th>
+                                <th>险路恶敌</th>
+                                <th>加分</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>关卡完成度</td>
-                                <td>40%</td>
-                                <td>完成关卡数量及质量</td>
+                                <td>深寒造像</td>
+                                <td>150</td>
+                                <td>萨米之熵</td>
+                                <td>30</td>
                             </tr>
                             <tr>
-                                <td>干员使用率</td>
-                                <td>25%</td>
-                                <td>干员阵容多样性及使用效率</td>
+                                <td>虚无之偶</td>
+                                <td>120</td>
+                                <td>园丁</td>
+                                <td>50</td>
                             </tr>
                             <tr>
-                                <td>资源管理</td>
-                                <td>20%</td>
-                                <td>源石锭、希望值等资源利用率</td>
+                                <td>哨兵</td>
+                                <td>300</td>
+                                <td>时光之沙</td>
+                                <td>100</td>
                             </tr>
                             <tr>
-                                <td>策略创新</td>
-                                <td>15%</td>
-                                <td>独特战术及创新打法</td>
+                                <td>迈入永恒</td>
+                                <td>150</td>
+                                <td>24连打</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>大地醒转/呼吸/夺树者</td>
+                                <td>50</td>
+                                <td>-</td>
+                                <td>-</td>
                             </tr>
                         </tbody>
-                    </table>
-                </article>
-
-                <article id="restrictions" class="rule-card card">
-                    <h3><i class="fas fa-ban"></i> 禁用限制</h3>
-                    <p>为保证比赛公平性，以下内容将被禁止：</p>
-                    <ul>
-                        <li>使用任何形式的外挂或作弊软件</li>
-                        <li>使用未在官方许可名单中的干员（名单将在赛前公布）</li>
-                        <li>在比赛过程中接收场外指导</li>
-                        <li>故意拖延比赛时间</li>
-                    </ul>
-                    <p>违规者将被取消比赛资格并禁止参加后续赛事。</p>
+                        </table>
+                        <table id="SAMI normal">
+                        <thead>
+                            <tr>
+                                <th>一般作战</th>
+                                <th>紧急作战</th>
+                                <th>持有路网且无漏</th>
+                                <th>一般作战</th>
+                                <th>紧急作战</th>
+                                <th>持有路网且无漏</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>公司纠葛</td>
+                                <td>20</td>
+                                <td>30</td>
+                                <td>人造物狂欢节</td>
+                                <td>90</td>
+                                <td>110</td>
+                            </tr>
+                            <tr>
+                                <td>亡者行军</td>
+                                <td>50</td>
+                                <td>70</td>
+                                <td>冰海疑影</td>
+                                <td>20</td>
+                                <td>25</td>
+                            </tr>
+                            <tr>
+                                <td>本能污染</td>
+                                <td>50</td>
+                                <td>50</td>
+                                <td>坍缩体的午后</td>
+                                <td>20</td>
+                                <td>20</td>
+                            <tr>
+                                <td>乐理之灾</td>
+                                <td>40</td>
+                                <td>45</td>
+                                <td>生灵的终点</td>
+                                <td>90</td>
+                                <td>95</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                        <table id="SAMI special">
+                        <thead>
+                            <tr>
+                                <th>特殊作战</th>
+                                <th>加分</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>狗鸭熊</td>
+                                <td>每击杀+20</td>
+                            </tr>
+                            <tr>
+                                <td>英雄无名</td>
+                                <td>每击杀+20</td>
+                            </tr>
+                            <tr>
+                                <td>正义使者</td>
+                                <td>无漏+140</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
                 </article>
             </main>
 
             <!-- 右侧侧边栏 -->
             <aside class="sidebar">
-                <div class="download-card card">
-                    <i class="fas fa-file-pdf"></i>
-                    <h3>下载完整规则</h3>
-                    <p>获取详细的比赛规则文档</p>
-                    <button class="btn"><i class="fas fa-download"></i> PDF版本</button>
-                    <button class="btn"><i class="fas fa-file-word"></i> Word版本</button>
-                </div>
 
                 <div class="info-card card">
                     <h3><i class="fas fa-info-circle"></i> 重要信息</h3>
                     <ul>
-                        <li><span>赛事状态：</span><span class="value">报名中</span></li>
-                        <li><span>报名人数：</span><span class="value">86人</span></li>
-                        <li><span>资格赛名额：</span><span class="value">64人</span></li>
-                        <li><span>决赛名额：</span><span class="value">16人</span></li>
-                        <li><span>总奖金：</span><span class="value">¥5,000</span></li>
+                        <li><span>赛事状态:</span><span class="value">已结束比赛</span></li>
+                        <li><span>报名人数:</span><span class="value">20人</span></li>
+                        <li><span>正赛名额:</span><span class="value">20人</span></li>
                     </ul>
                 </div>
 
@@ -189,22 +465,22 @@
                     <div class="contact">
                         <i class="fas fa-user"></i>
                         <div>
-                            <strong>天堂支点</strong>
-                            <p>WeChat: amutou007</p>
+                            <strong>xXD</strong>
+                            <p>WeChat: xXD66c</p>
                         </div>
                     </div>
                     <div class="contact">
                         <i class="fas fa-envelope"></i>
                         <div>
                             <strong>赛事邮箱</strong>
-                            <p>zijin_cup@example.com</p>
+                            <p>zj_aisc@qq.com</p>
                         </div>
                     </div>
                     <div class="contact">
                         <i class="fas fa-phone"></i>
                         <div>
                             <strong>紧急联系</strong>
-                            <p>138-XXXX-XXXX</p>
+                            <p>134-5696-4611</p>
                         </div>
                     </div>
                 </div>
@@ -223,15 +499,11 @@
                 <div class="footer-widget">
                     <h4>快速链接</h4>
                     <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> 联系方式</a></li>
-                        <li><a href="rules.html"><i class="fas fa-chevron-right"></i> 赛事规则</a></li>
+                        <li><a href="../team.html"><i class="fas fa-chevron-right"></i> 联系方式</a></li>
+                        <li><a href="rule-col.html"><i class="fas fa-chevron-right"></i> 赛事规则</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> 常见问题FAQs</a></li>
                     </ul>
                 </div>
-            </div>
-
-            <div class="copyright">
-                <p>© 2025 ZiJin A.I.S.C. 保留所有权利</p>
             </div>
         </div>
     </footer>

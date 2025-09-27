@@ -21,6 +21,7 @@
     --gold: #FFD700;
     --silver: #C0C0C0;
     --bronze: #CD7F32;
+    --attention: #ffec81;
     --dark-primary: #A682E2;
     --dark-neutral: #121212;
     --dark-text: #F0F0F0;
@@ -29,6 +30,7 @@
     --dark-gold: #FFD700;
     --dark-silver: #C0C0C0;
     --dark-bronze: #CD7F32;
+    --dark-attention:  #b4a238;
     --current-primary: var(--primary);
     --current-text: var(--text);
     --current-bg: var(--neutral);
@@ -40,6 +42,7 @@
     --current-gold: var(--gold);
     --current-silver: var(--silver);
     --current-bronze: var(--bronze);
+    --current-attention: var(--attention);
     --border-radius: 16px;
     --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     --card-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.12);
@@ -58,6 +61,7 @@
     --current-gold: var(--dark-gold);
     --current-silver: var(--dark-silver);
     --current-bronze: var(--dark-bronze);
+    --current-attention: var(--dark-attention);
 }
 
 body {
@@ -474,4 +478,9 @@ footer {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+.attention {
+    background-color: var(--current-attention);
+    border-radius: 4px;
 }
