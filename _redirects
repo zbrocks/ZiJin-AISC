@@ -1,0 +1,25 @@
+[build]
+  publish = "."
+  command = "echo 'No build command needed for static site'"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/404"
+  to = "/404.html"
+  status = 404
+
+# 自定义404页面
+[build.environment]
+  NODE_VERSION = "18"
+
+# 处理SPA路由（如果适用）
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
+  conditions = {Status = "404"}
