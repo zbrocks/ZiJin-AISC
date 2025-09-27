@@ -90,57 +90,6 @@
     font-size: 1.2rem;
 }
 
-.error-suggestions {
-    max-width: 700px;
-    width: 100%;
-    margin-top: 40px;
-    padding: 30px;
-    background: var(--current-card-bg);
-    box-shadow: var(--element-shadow);
-    border-radius: var(--border-radius);
-}
-
-.error-suggestions h3 {
-    text-align: center;
-    color: var(--current-primary);
-    margin-bottom: 25px;
-    font-size: 1.5rem;
-}
-
-.suggestion-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-}
-
-.suggestion-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 15px;
-    background: rgba(134, 93, 187, 0.1);
-    border-radius: 12px;
-    transition: all 0.3s;
-    color: var(--current-text);
-    text-decoration: none;
-}
-
-.suggestion-item:hover {
-    background: rgba(134, 93, 187, 0.2);
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.suggestion-item i {
-    font-size: 2.5rem;
-    color: var(--current-primary);
-    margin-bottom: 15px;
-}
-
-.suggestion-item span {
-    font-weight: 600;
-    text-align: center;
-}
 
 /* 动画效果 */
 @keyframes float {
