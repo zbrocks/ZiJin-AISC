@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赛事通讯 - ZiJin A.I.S.C.</title>
+    <link rel="shortcut icon" href="/assets/images/icons/logo32x32.png" type="image/png" sizes="32x32">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/arti-col.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">ZiJin <span>A.I.S.C.</span></div>
+                <ul class="nav-links">
+                    <li><a href="/index.html"><i class="fas fa-home"></i> 首页</a></li>
+                    <li><a href="/pages/past-event.html"><i class="fas fa-trophy"></i> 往届比赛</a></li>
+                    <li><a href="/pages/hall-of-fame.html"><i class="fas fa-crown"></i> 名人堂</a></li>
+                    <li><a href="/pages/team.html"><i class="fas fa-users"></i> 主办方团队</a></li>
+                    <li>
+                        <button class="theme-toggle" id="themeToggle" title="切换主题">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="page-header">
+            <h1><i class="fas fa-newspaper"></i> 赛事通讯</h1>
+            <p>紫金杯集成战略赛事组官方通讯与资讯</p>
+        </div>
+
+        <!-- 统计概览 -->
+        <div class="overview-section">
+            <div class="overview-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">已发布通讯</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar"></i>
+                    </div>
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">月度发布频率</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 通讯文章列表 -->
+        <div class="articles-grid">
+            <div class="article-card featured">
+                <div class="article-header">
+                    <div class="article-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="article-title">
+                        <h3>赛事组通讯 #0_RE</h3>
+                    </div>
+                    <div class="article-status status-published">已发布</div>
+                </div>
+
+                <div class="article-info">
+                    <div class="article-info-item">
+                        <span class="info-label">发布时间</span>
+                        <span class="info-value">2025年10月1日</span>
+                    </div>
+                    <div class="article-info-item">
+                        <span class="info-label">作者</span>
+                        <span class="info-value">紫金杯赛事组</span>
+                    </div>
+                    <div class="article-info-item">
+                        <span class="info-label">分类</span>
+                        <span class="info-value">赛事公告</span>
+                    </div>
+                </div>
+
+                <div class="article-description">
+                    <p>欢迎来到紫金杯集成战略赛事的官方通讯！本期通讯将为大家介绍赛事的发展历程、未来规划，以及赛事组的工作理念。让我们一起见证集成战略竞技的精彩时刻。</p>
+                </div>
+
+                <div class="article-tags">
+                    <span class="tag">赛事介绍</span>
+                    <span class="tag">发展历程</span>
+                    <span class="tag">未来规划</span>
+                </div>
+
+                <div class="article-actions">
+                    <a href="article-0.html" class="btn btn-primary">
+                        <i class="fas fa-book-open"></i> 阅读全文
+                    </a>
+                    <button class="btn btn-secondary" onclick="shareArticle('赛事组通讯 #0_RE')">
+                        <i class="fas fa-share"></i> 分享
+                    </button>
+                </div>
+            </div>
+
+            <!-- 占位卡片 - 即将发布 -->
+            <div class="article-card placeholder">
+                <div class="article-header">
+                    <div class="article-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="article-title">
+                        <h3>赛事组通讯 #1</h3>
+                        <p class="article-subtitle">敬请期待下期精彩内容</p>
+                    </div>
+                    <div class="article-status status-upcoming">即将发布</div>
+                </div>
+
+                <div class="article-info">
+                    <div class="article-info-item">
+                        <span class="info-label">预计发布</span>
+                        <span class="info-value">2025年11月</span>
+                    </div>
+                    <div class="article-info-item">
+                        <span class="info-label">主题</span>
+                        <span class="info-value">待定</span>
+                    </div>
+                </div>
+
+                <div class="article-description">
+                    <p>下期通讯正在筹备中，将为大家带来更多精彩的赛事资讯和深度内容。敬请期待！</p>
+                </div>
+
+                <div class="article-actions">
+                    <button class="btn btn-disabled" disabled>
+                        <i class="fas fa-hourglass-half"></i> 敬请期待
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 通讯发展历程 -->
+        <div class="evolution-section">
+            <h2><i class="fas fa-timeline"></i> 通讯发展历程</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content">
+                        <h4>通讯创立</h4>
+                        <p>紫金杯赛事组正式启动官方通讯项目，旨在为参赛者和关注者提供及时、准确的赛事资讯。</p>
+                        <ul>
+                            <li>确立通讯发布机制</li>
+                            <li>建立内容创作团队</li>
+                            <li>制定发布时间表</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content">
+                        <h4>内容规划</h4>
+                        <p>制定了详细的内容规划，包括赛事报道、选手专访、技术分析等多个栏目。</p>
+                        <ul>
+                            <li>多元化内容策略</li>
+                            <li>读者反馈机制</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content">
+                        <h4>未来展望</h4>
+                        <p>计划扩大通讯影响力，增加互动性内容，为集成战略社区建设贡献力量。</p>
+                        <ul>
+                            <li>增加视频内容</li>
+                            <li>开设互动栏目</li>
+                            <li>建立读者社区</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-widget">
+                    <h4>关于本站</h4>
+                    <p>一群埃及的年轻人打造的赛事平台</p>
+                </div>
+
+                <div class="footer-widget">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="/pages/team.html"><i class="fas fa-chevron-right"></i> 联系方式</a></li>
+                        <li><a href="/pages/rules/rule-col.html"><i class="fas fa-chevron-right"></i> 赛事规则</a></li>
+                        <li><a href="/pages/FAQ.html"><i class="fas fa-chevron-right"></i> 常见问题FAQs</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/arti-col.js"></script>
+</body>
+
+</html>
