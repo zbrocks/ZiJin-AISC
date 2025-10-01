@@ -1,0 +1,12 @@
+{
+  "statusMap": {
+    "not-started": "未开赛",
+    "in-progress": "比赛中",
+    "completed": "已完赛"
+  },
+  "statusClassMap": {
+    "not-started": "status-not-started",
+    "in-progress": "status-in-progress",
+    "completed": "status-completed"
+  }
+}

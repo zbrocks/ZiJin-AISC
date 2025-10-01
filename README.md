@@ -49,7 +49,6 @@ ZiJin-AISC/
     ├── FAQ.html          # 常见问题页面
     ├── team.html         # 主办团队页面
     ├── hall-of-fame.html # 名人堂页面
-    ├── past-event.html   # 往届比赛页面
     ├── articles/         # 文章页面
     ├── events/           # 赛事详情页面
     └── rules/            # 规则页面
@@ -62,11 +61,6 @@ ZiJin-AISC/
 - 赛事计分板
 - 最新动态
 - 社交媒体链接
-
-### 🏆 往届比赛 (pages/past-event.html)
-- 历届赛事回顾
-- 比赛结果展示
-- 精彩瞬间回放
 
 ### 👑 名人堂 (pages/hall-of-fame.html)
 - 优秀选手展示

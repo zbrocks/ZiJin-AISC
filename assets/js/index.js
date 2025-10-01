@@ -43,18 +43,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 计分板功能
     const scoreboardData = [];
+    let statusMap = {};
+    let statusClassMap = {};
 
-    const statusMap = {
-        "not-started": "未开赛",
-        "in-progress": "比赛中",
-        "completed": "已完赛"
-    };
-
-    const statusClassMap = {
-        "not-started": "status-not-started",
-        "in-progress": "status-in-progress",
-        "completed": "status-completed"
-    };
+    // 异步加载状态配置数据
+    async function loadStatusConfig() {
+        try {
+            const response = await fetch('/assets/json/status-config.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const config = await response.json();
+            statusMap = config.statusMap;
+            statusClassMap = config.statusClassMap;
+        } catch (error) {
+            console.error('加载状态配置失败:', error);
+        }
+    }
 
     function renderScoreboard(data) {
         const tbody = document.getElementById('scoreboard-body');
@@ -137,8 +142,11 @@ document.addEventListener('DOMContentLoaded', () => {
         renderScoreboard(sortedData);
     }
 
-    function initScoreboard() {
+    async function initScoreboard() {
         if (!document.getElementById('scoreboard-body')) return;
+
+        // 先加载状态配置
+        await loadStatusConfig();
 
         document.getElementById('statusFilter')?.addEventListener('change', filterScoreboard);
         document.getElementById('playerFilter')?.addEventListener('input', filterScoreboard);

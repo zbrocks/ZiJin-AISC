@@ -1,0 +1,44 @@
+{
+  "T01": {
+    "name": "天堂支点",
+    "role": "策划",
+    "contact": "WeChat: amutou007",
+    "event": "紫金杯#2 紫金杯#3",
+    "avatar": "../assets/images/faces/team/天堂支点.jpg"
+  },
+  "T02": {
+    "name": "雨落星辰",
+    "role": "美术&宣传",
+    "contact": "WeChat: YC131645",
+    "event": "紫金杯#2 紫金杯#3",
+    "avatar": "../assets/images/faces/team/雨落星辰.jpg"
+  },
+  "T03": {
+    "name": "你的洛",
+    "role": "策划",
+    "contact": "WeChat: c13738115025",
+    "event": "紫金杯#1 紫金杯#3",
+    "avatar": "../assets/images/faces/team/你的洛.jpg"
+  },
+  "T04": {
+    "name": "前航远歌",
+    "role": "干事",
+    "contact": "WeChat: cyl13757165256",
+    "event": "紫金杯#2 紫金杯#3",
+    "avatar": "../assets/images/faces/team/前航远歌.jpg"
+  },
+  "T05": {
+    "name": "xXD",
+    "role": "计分&支持",
+    "contact": "WeChat: xXD66c",
+    "event": "紫金杯#2 紫金杯#3",
+    "avatar": "../assets/images/faces/team/xXD.jpg"
+  },
+  "T06": {
+    "name": "乘槎一问津",
+    "role": "剪辑",
+    "contact": "WeChat: POSBL_1102",
+    "event": "紫金杯#3",
+    "avatar": "../assets/images/faces/team/乘槎一问津.jpg"
+  }
+}

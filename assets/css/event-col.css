@@ -1,0 +1,398 @@
+
+
+/* 往届比赛页面样式 */
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background: linear-gradient(180deg, var(--current-primary), var(--accent));
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+    border-radius: 3px;
+    box-shadow: 0 0 20px rgba(134, 93, 187, 0.3);
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--current-primary);
+    border-radius: 50%;
+    top: -10px;
+    left: 50%;
+    margin-left: -10px;
+    z-index: 2;
+    box-shadow: 0 0 0 4px var(--current-bg), 0 0 20px rgba(134, 93, 187, 0.4);
+}
+
+.timeline-item {
+    position: relative;
+    width: 100%;
+    margin-bottom: 4rem;
+    opacity: 0;
+    animation: slideInUp 0.8s ease forwards;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.2s; }
+.timeline-item:nth-child(2) { animation-delay: 0.4s; }
+.timeline-item:nth-child(3) { animation-delay: 0.6s; }
+
+.timeline-item:nth-child(odd) {
+    padding-right: calc(50% + 30px);
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    padding-left: calc(50% + 30px);
+}
+
+.timeline-content {
+    position: relative;
+    background: var(--current-card-bg);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(134, 93, 187, 0.1);
+    overflow: hidden;
+}
+
+.timeline-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--current-primary), var(--accent));
+    border-radius: 20px 20px 0 0;
+}
+
+.timeline-content:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(134, 93, 187, 0.2);
+    border-color: var(--current-primary);
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(45deg, var(--current-primary), var(--accent));
+    border-radius: 50%;
+    top: 35px;
+    z-index: 3;
+    box-shadow: 0 0 0 4px var(--current-bg), 0 0 20px rgba(134, 93, 187, 0.4);
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover::before {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 6px var(--current-bg), 0 0 30px rgba(134, 93, 187, 0.6);
+}
+
+.timeline-item:nth-child(odd) .timeline-content::before {
+    right: -12px;
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+    left: -12px;
+}
+
+.timeline-year {
+    position: absolute;
+    top: 25px;
+    z-index: 2;
+    background: linear-gradient(135deg, var(--current-primary), var(--accent));
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 6px 20px rgba(134, 93, 187, 0.4);
+    transition: all 0.3s ease;
+    border: 2px solid var(--current-bg);
+}
+
+.timeline-year:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(134, 93, 187, 0.5);
+}
+
+.timeline-item:nth-child(odd) .timeline-year {
+    right: -90px;
+}
+
+.timeline-item:nth-child(even) .timeline-year {
+    left: -90px;
+}
+
+.timeline-content h3 {
+    color: var(--current-primary);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.timeline-content h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--current-primary), var(--accent));
+    border-radius: 2px;
+}
+
+.timeline-item:nth-child(odd) .timeline-content h3::after {
+    right: 0;
+    left: auto;
+}
+
+.event-info {
+    list-style: none;
+    margin-bottom: 2rem;
+    background: rgba(134, 93, 187, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+}
+
+.event-info li {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(134, 93, 187, 0.1);
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.event-info li:hover {
+    background: rgba(134, 93, 187, 0.08);
+    border-radius: 8px;
+    padding-left: 10px;
+    margin: 0 -10px;
+}
+
+.event-info li:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    font-weight: 700;
+    min-width: 120px;
+    color: var(--current-primary);
+    font-size: 0.95rem;
+}
+
+.info-value {
+    flex-grow: 1;
+    font-weight: 500;
+    color: var(--current-text);
+}
+
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, var(--current-primary), var(--accent));
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(134, 93, 187, 0.3);
+}
+
+.read-more::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(135deg, var(--accent), var(--current-primary));
+    transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: -1;
+    border-radius: 50px;
+}
+
+.read-more:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(134, 93, 187, 0.4);
+}
+
+.read-more:hover::before {
+    width: 100%;
+}
+
+.read-more i {
+    font-size: 1rem;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.read-more:hover i {
+    transform: translateX(5px) rotate(15deg);
+}
+
+/* 动画效果 */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.timeline::before {
+    animation: pulse 2s infinite;
+}
+
+/* 装饰性背景元素 */
+.timeline {
+    position: relative;
+}
+
+.timeline::after {
+    background: linear-gradient(180deg,
+        var(--current-primary) 0%,
+        var(--accent) 50%,
+        var(--current-primary) 100%);
+}
+
+/* 响应式设计改进 */
+@media (max-width: 992px) {
+    .timeline {
+        max-width: 700px;
+    }
+    
+    .timeline-item:nth-child(odd) {
+        padding-right: calc(50% + 25px);
+    }
+    
+    .timeline-item:nth-child(even) {
+        padding-left: calc(50% + 25px);
+    }
+}
+
+@media (max-width: 768px) {
+    .timeline {
+        max-width: 100%;
+        padding: 1rem 0;
+    }
+    
+    .timeline::after {
+        left: 35px;
+        width: 4px;
+        margin-left: -2px;
+    }
+    
+    .timeline::before {
+        left: 35px;
+        margin-left: -10px;
+    }
+
+    .timeline-item {
+        padding-left: 80px !important;
+        padding-right: 0 !important;
+        text-align: left !important;
+        margin-bottom: 3rem;
+    }
+
+    .timeline-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .timeline-content::before {
+        left: 25px !important;
+        right: auto !important;
+        width: 20px;
+        height: 20px;
+    }
+
+    .timeline-year {
+        left: 0 !important;
+        right: auto !important;
+        font-size: 1rem;
+        padding: 10px 16px;
+    }
+    
+    .timeline-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .info-label {
+        min-width: 100px;
+        font-size: 0.9rem;
+    }
+    
+    .read-more {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline-content {
+        padding: 1.5rem 1rem;
+    }
+    
+    .event-info {
+        padding: 1rem;
+    }
+    
+    .event-info li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .info-label {
+        min-width: auto;
+        margin-bottom: 2px;
+    }
+    
+    .timeline-content h3 {
+        font-size: 1.3rem;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

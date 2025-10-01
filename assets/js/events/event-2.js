@@ -1,117 +1,28 @@
 // 比赛事件管理
 class EventManager {
     constructor() {
-        this.eventData = {
-            "SM坎诺特分队": {
-                "Pan": {
-                    "name": "Pan",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                },
-                "MaoMao": {
-                    "name": "毛毛",
-                    "role": "创想家",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                },
-                "XianWei": {
-                    "name": "显微镜🔬",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                }
-            },
-            "亚军厨小队": {
-                "NiYan": {
-                    "name": "泥岩小队践行者组长",
-                    "role": "创想家",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                },
-                "NingMeng": {
-                    "name": "一颗柠檬精",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                },
-                "HengYin": {
-                    "name": "恒音",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                }
-            },
-            "厨圣": {
-                "FeiNi": {
-                    "name": "妃你带我走吧😭😭😭",
-                    "role": "创想家",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                },
-                "QianHang": {
-                    "name": "前航远歌",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/team/前航远歌.jpg"
-                },
-                "Natsuk": {
-                    "name": "Natsuk",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                }
-            },
-            "蓝图测绘分队": {
-                "NiDe": {
-                    "name": "你的洛",
-                    "role": "创想家",
-                    "avatar": "/assets/images/faces/player/你的洛.jpg"
-                },
-                "ZZH": {
-                    "name": "ZZH",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                },
-                "shawryao": {
-                    "name": "shawryao",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                }
-            },
-            "目光呆滞": {
-                "ZhiHui": {
-                    "name": "智慧的龙",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                },
-                "XueLang": {
-                    "name": "雪狼的利刃",
-                    "role": "创想家",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                },
-                "Salieri": {
-                    "name": "SalieriAmA",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                }
-            },
-            "香橙蜜柑仙贝": {
-                "Dialectic": {
-                    "name": "Dialectic",
-                    "role": "创想家",
-                    "avatar": "/assets/images/faces/player/Dialectic.jpg"
-                },
-                "LZ": {
-                    "name": "LZ",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                },
-                "ChengCha": {
-                    "name": "乘槎一问津",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/team/乘槎一问津.jpg"
-                }
-            }
-        };
+        this.eventData = {};
         this.modalOverlay = null;
         this.closeModal = null;
         this.init();
     }
 
-    init() {
+    // 异步加载赛事数据
+    async loadEventData() {
+        try {
+            const response = await fetch('/assets/json/events/event-2-data.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            this.eventData = await response.json();
+        } catch (error) {
+            console.error('加载赛事数据失败:', error);
+        }
+    }
+
+    async init() {
         this.initDOM();
+        await this.loadEventData();
         this.renderTeams();
         this.bindEvents();
     }

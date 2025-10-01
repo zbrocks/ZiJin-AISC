@@ -1,103 +1,28 @@
 // 比赛事件管理
 class EventManager {
     constructor() {
-        this.eventData = {
-            "作业未完成": {
-                "LuoYu": {
-                    "name": "洛雨言",
-                    "role": "神人",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                },
-                "YiMeng": {
-                    "name": "遗梦繁华",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                },
-                "Msrys": {
-                    "name": "Msrys",
-                    "role": "创想家",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                },
-                "ChenPi": {
-                    "name": "陳皮糖",
-                    "role": "深度坍缩者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                }
-            },
-            "精灵耳品鉴中心": {
-                "ChangFeng": {
-                    "name": "长风",
-                    "role": "神人",
-                    "avatar": "/assets/images/faces/player/雨落星辰.jpg"
-                },
-                "MaoMao": {
-                    "name": "乘槎一问津",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/player/乘槎一问津.jpg"
-                },
-                "XianWei": {
-                    "name": "Dialectic",
-                    "role": "创想家",
-                    "avatar": "/assets/images/faces/player/Dialectic.jpg"
-                },
-                "LZ": {
-                    "name": "LZ",
-                    "role": "深度坍缩者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                }
-            },
-            "沙阿会梦到弑君者吗": {
-                "xXD": {
-                    "name": "xXD",
-                    "role": "神人",
-                    "avatar": "/assets/images/faces/player/xXD.jpg"
-                },
-                "Natsuk": {
-                    "name": "Natsuk",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                },
-                "BaiWan": {
-                    "name": "百万",
-                    "role": "创想家",
-                    "avatar": "/assets/images/faces/player/前航远歌.jpg"
-                },
-                "TianTang": {
-                    "name": "天堂支点",
-                    "role": "深度坍缩者",
-                    "avatar": "/assets/images/faces/player/天堂支点.jpg"
-                }
-            },
-            "蛰伏影中的猫": {
-                "ChunFeng": {
-                    "name": "纯风有宴",
-                    "role": "神人",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                },
-                "ZhongYe1": {
-                    "name": "柊葉晴川",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                },
-                "Zhongye2": {
-                    "name": "柊葉晴川",
-                    "role": "创想家",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                },
-                "HaoYue": {
-                    "name": "皓月当年",
-                    "role": "深度坍缩者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                }
-            },
-        };
+        this.eventData = {};
         this.modalOverlay = null;
         this.closeModal = null;
         this.init();
     }
 
-    init() {
+    // 异步加载赛事数据
+    async loadEventData() {
+        try {
+            const response = await fetch('/assets/json/events/event-3-data.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            this.eventData = await response.json();
+        } catch (error) {
+            console.error('加载赛事数据失败:', error);
+        }
+    }
+
+    async init() {
         this.initDOM();
+        await this.loadEventData();
         this.renderTeams();
         this.bindEvents();
     }

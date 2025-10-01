@@ -1,54 +1,18 @@
-// 选手数据
-const memberData = {
-    T01: {
-        name: "天堂支点",
-        role: "策划",
-        contact: "WeChat: amutou007",
-        event: "紫金杯#2 紫金杯#3",
-        // quote: "完美的战术布局和精准的操作时机是取胜的关键"
-        avatar: "../assets/images/faces/team/天堂支点.jpg"
-    },
-    T02: {
-        name: "雨落星辰",
-        role: "美术&宣传",
-        contact: "WeChat: YC131645",
-        event: "紫金杯#2 紫金杯#3",
-        // quote: "团队协作和资源分配是集成战略的核心"
-        avatar: "../assets/images/faces/team/雨落星辰.jpg"
-    },
-    T03: {
-        name: "你的洛",
-        role: "策划",
-        contact: "WeChat: c13738115025",
-        event: "紫金杯#1 紫金杯#3",
-        // quote: "灵活应变和快速决策能力在比赛中至关重要"
-        avatar: "../assets/images/faces/team/你的洛.jpg"
-    },
-    T04: {
-        name: "前航远歌",
-        role: "干事",
-        contact: "WeChat: cyl13757165256",
-        event: "紫金杯#2 紫金杯#3",
-        // quote: "每一次失败都是下一次成功的垫脚石"
-        avatar: "../assets/images/faces/team/前航远歌.jpg"
-    },
-    T05: {
-        name: "xXD",
-        role: "计分&支持",
-        contact: "WeChat: xXD66c",
-        event: "紫金杯#2 紫金杯#3",
-        // quote: "细节决定成败，在集成战略中尤为如此"
-        avatar: "../assets/images/faces/team/xXD.jpg"
-    },
-    T06: {
-        name: "乘槎一问津",
-        role: "剪辑",
-        contact: "WeChat: POSBL_1102",
-        event: "紫金杯#3",
-        // quote: "保持冷静的头脑才能在高压环境下做出正确判断"
-        avatar: "../assets/images/faces/team/乘槎一问津.jpg"
+// 团队成员数据
+let memberData = {};
+
+// 异步加载团队成员数据
+async function loadMemberData() {
+    try {
+        const response = await fetch('/assets/json/team-members.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        memberData = await response.json();
+    } catch (error) {
+        console.error('加载团队成员数据失败:', error);
     }
-};
+}
 
 // DOM元素
 const modalOverlay = document.getElementById('modalOverlay');
@@ -85,7 +49,10 @@ function openModal(memberId) {
 }
 
 // 在DOMContentLoaded事件中添加
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    // 先加载数据
+    await loadMemberData();
+    
     // 设置小卡片头像
     document.querySelectorAll('.small-card').forEach(card => {
         const memberId = card.getAttribute('data-card-id');
@@ -100,13 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
             avatar.style.display = 'none';
         }
     });
-
-    // 设置模态框头像
-    // const modalAvatar = document.getElementById('modalMemberAvatar');
-    // if (modalAvatar) {
-    //     modalAvatar.src = "";
-    //     modalAvatar.alt = "";
-    // }
 });
 
 // 关闭模态框

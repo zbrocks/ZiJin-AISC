@@ -1,23 +1,18 @@
 // 选手数据
-const playerData = {
-    P01: {
-        name: "Dialectic",
-        team: "香澄蜜柑仙贝",
-        score: "决赛唯一幸存",
-        event: "紫金杯#2",
-        quote: "我是奎隆好大儿",
-        avatar: "/assets/images/faces/player/Dialectic.jpg"
-    },
-    P02: {
-        name: "你的洛",
-        team: "蓝图测绘分队",
-        score: "初赛最高分",
-        event: "紫金杯#2",
-        quote: "他好像什么都没说...",
-        avatar: "/assets/images/faces/player/你的洛.jpg"
+let playerData = {};
 
-    },
-};
+// 异步加载选手数据
+async function loadPlayerData() {
+    try {
+        const response = await fetch('/assets/json/players.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        playerData = await response.json();
+    } catch (error) {
+        console.error('加载选手数据失败:', error);
+    }
+}
 
 // DOM元素
 const modalOverlay = document.getElementById('modalOverlay');
@@ -53,7 +48,10 @@ function openModal(playerId) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    // 先加载数据
+    await loadPlayerData();
+    
     document.querySelectorAll('.small-card').forEach(card => {
         const playerId = card.getAttribute('data-card-id');
         const player = playerData[playerId];
