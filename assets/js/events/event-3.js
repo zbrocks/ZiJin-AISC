@@ -2,108 +2,94 @@
 class EventManager {
     constructor() {
         this.eventData = {
-            "SM坎诺特分队": {
-                "Pan": {
-                    "name": "Pan",
+            "作业未完成": {
+                "LuoYu": {
+                    "name": "洛雨言",
+                    "role": "神人",
+                    "avatar": "/assets/images/faces/player/default.jpg"
+                },
+                "YiMeng": {
+                    "name": "遗梦繁华",
                     "role": "讲述者",
                     "avatar": "/assets/images/faces/player/default.jpg"
+                },
+                "Msrys": {
+                    "name": "Msrys",
+                    "role": "创想家",
+                    "avatar": "/assets/images/faces/player/default.jpg"
+                },
+                "ChenPi": {
+                    "name": "陳皮糖",
+                    "role": "深度坍缩者",
+                    "avatar": "/assets/images/faces/player/default.jpg"
+                }
+            },
+            "精灵耳品鉴中心": {
+                "ChangFeng": {
+                    "name": "长风",
+                    "role": "神人",
+                    "avatar": "/assets/images/faces/player/雨落星辰.jpg"
                 },
                 "MaoMao": {
-                    "name": "毛毛",
-                    "role": "创想家",
-                    "avatar": "/assets/images/faces/player/default.jpg"
+                    "name": "乘槎一问津",
+                    "role": "讲述者",
+                    "avatar": "/assets/images/faces/player/乘槎一问津.jpg"
                 },
                 "XianWei": {
-                    "name": "显微镜🔬",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                }
-            },
-            "亚军厨小队": {
-                "NiYan": {
-                    "name": "泥岩小队践行者组长",
-                    "role": "创想家",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                },
-                "NingMeng": {
-                    "name": "一颗柠檬精",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                },
-                "HengYin": {
-                    "name": "恒音",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                }
-            },
-            "厨圣": {
-                "FeiNi": {
-                    "name": "妃你带我走吧😭😭😭",
-                    "role": "创想家",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                },
-                "QianHang": {
-                    "name": "前航远歌",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/team/前航远歌.jpg"
-                },
-                "Natsuk": {
-                    "name": "Natsuk",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                }
-            },
-            "蓝图测绘分队": {
-                "NiDe": {
-                    "name": "你的洛",
-                    "role": "创想家",
-                    "avatar": "/assets/images/faces/player/你的洛.jpg"
-                },
-                "ZZH": {
-                    "name": "ZZH",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                },
-                "shawryao": {
-                    "name": "shawryao",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                }
-            },
-            "目光呆滞": {
-                "ZhiHui": {
-                    "name": "智慧的龙",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                },
-                "XueLang": {
-                    "name": "雪狼的利刃",
-                    "role": "创想家",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                },
-                "Salieri": {
-                    "name": "SalieriAmA",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/player/default.jpg"
-                }
-            },
-            "香橙蜜柑仙贝": {
-                "Dialectic": {
                     "name": "Dialectic",
                     "role": "创想家",
                     "avatar": "/assets/images/faces/player/Dialectic.jpg"
                 },
                 "LZ": {
                     "name": "LZ",
+                    "role": "深度坍缩者",
+                    "avatar": "/assets/images/faces/player/default.jpg"
+                }
+            },
+            "沙阿会梦到弑君者吗": {
+                "xXD": {
+                    "name": "xXD",
+                    "role": "神人",
+                    "avatar": "/assets/images/faces/player/xXD.jpg"
+                },
+                "Natsuk": {
+                    "name": "Natsuk",
                     "role": "讲述者",
                     "avatar": "/assets/images/faces/player/default.jpg"
                 },
-                "ChengCha": {
-                    "name": "乘槎一问津",
-                    "role": "讲述者",
-                    "avatar": "/assets/images/faces/team/乘槎一问津.jpg"
+                "BaiWan": {
+                    "name": "百万",
+                    "role": "创想家",
+                    "avatar": "/assets/images/faces/player/前航远歌.jpg"
+                },
+                "TianTang": {
+                    "name": "天堂支点",
+                    "role": "深度坍缩者",
+                    "avatar": "/assets/images/faces/player/天堂支点.jpg"
                 }
-            }
+            },
+            "蛰伏影中的猫": {
+                "ChunFeng": {
+                    "name": "纯风有宴",
+                    "role": "神人",
+                    "avatar": "/assets/images/faces/player/default.jpg"
+                },
+                "ZhongYe1": {
+                    "name": "柊葉晴川",
+                    "role": "讲述者",
+                    "avatar": "/assets/images/faces/player/default.jpg"
+                },
+                "Zhongye2": {
+                    "name": "柊葉晴川",
+                    "role": "创想家",
+                    "avatar": "/assets/images/faces/player/default.jpg"
+                },
+                "HaoYue": {
+                    "name": "皓月当年",
+                    "role": "深度坍缩者",
+                    "avatar": "/assets/images/faces/player/default.jpg"
+                }
+            },
         };
         this.modalOverlay = null;
         this.closeModal = null;
@@ -194,10 +180,12 @@ class EventManager {
     getDefaultAvatar(playerName) {
         // 根据选手姓名尝试匹配头像文件
         const avatarMappings = {
-            '你的洛': '/assets/images/faces/player/你的洛.jpg',
+            'xXD': '/assets/images/faces/player/xXD.jpg',
             'Dialectic': '/assets/images/faces/player/Dialectic.jpg',
-            '前航远歌': '/assets/images/faces/team/前航远歌.jpg',
-            '乘槎一问津': '/assets/images/faces/team/乘槎一问津.jpg'
+            '百万': '/assets/images/faces/player/前航远歌.jpg',
+            '乘槎一问津': '/assets/images/faces/player/乘槎一问津.jpg',
+            '长风': '/assets/images/faces/player/雨落星辰.jpg',
+            '天堂支点': '/assets/images/faces/player/天堂支点.jpg'
         };
 
         return avatarMappings[playerName] || '';
@@ -206,12 +194,12 @@ class EventManager {
     // 获取姓名首字母
     getInitials(name) {
         if (!name) return '?';
-        
+
         // 对于中文名字，取第一个字符
         if (/[\u4e00-\u9fa5]/.test(name)) {
             return name.charAt(0);
         }
-        
+
         // 对于英文名字，取首字母
         return name.split(' ').map(word => word.charAt(0)).join('').toUpperCase();
     }
@@ -281,7 +269,7 @@ class EventManager {
         if (modalName) modalName.textContent = playerName;
         if (modalTeam) modalTeam.textContent = teamName;
         if (modalRole) modalRole.textContent = playerRole;
-        if (modalEvent) modalEvent.textContent = '紫金杯#2';
+        if (modalEvent) modalEvent.textContent = '紫金杯#3';
 
         // 设置模态框头像 - 修复默认头像显示问题
         if (modalAvatar) {

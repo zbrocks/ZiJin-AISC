@@ -42,11 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 计分板功能
-    const scoreboardData = [
-        { id: "Doctor01", team: "学军紫金港一队", time: "2025-08-24 14:00", status: "completed", score: 95 },
-        { id: "ArknightsKing", team: "杭高钱江队", time: "2025-08-24 15:30", status: "in-progress", score: "-" },
-        { id: "SilverAshFan", team: "杭二滨江队", time: "2025-08-24 16:15", status: "not-started", score: "-" },
-    ];
+    const scoreboardData = [];
 
     const statusMap = {
         "not-started": "未开赛",
@@ -68,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tbody.innerHTML = `
                 <tr>
                     <td colspan="5" class="no-results">
-                        <i class="fas fa-search"></i> 没有找到匹配的选手记录
+                        <i class="fas fa-search"></i> 您期待的选手还在路上
                     </td>
                 </tr>
             `;
