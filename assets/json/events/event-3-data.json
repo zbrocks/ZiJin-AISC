@@ -3,12 +3,12 @@
     "LuoYu": {
       "name": "洛雨言",
       "role": "神人",
-      "avatar": "/assets/images/faces/player/default.jpg"
+      "avatar": "/assets/images/faces/player/洛雨言.jpg"
     },
     "YiMeng": {
       "name": "遗梦繁华",
       "role": "讲述者",
-      "avatar": "/assets/images/faces/player/default.jpg"
+      "avatar": "/assets/images/faces/player/遗梦繁华.jpg"
     },
     "Msrys": {
       "name": "Msrys",
@@ -52,7 +52,7 @@
     "Natsuk": {
       "name": "Natsuk",
       "role": "讲述者",
-      "avatar": "/assets/images/faces/player/default.jpg"
+      "avatar": "/assets/images/faces/player/Natsuk.jpg"
     },
     "BaiWan": {
       "name": "百万",
@@ -69,7 +69,7 @@
     "ChunFeng": {
       "name": "纯风有宴",
       "role": "神人",
-      "avatar": "/assets/images/faces/player/default.jpg"
+      "avatar": "/assets/images/faces/player/纯风有宴.jpg"
     },
     "ZhongYe1": {
       "name": "柊葉晴川",
@@ -84,7 +84,7 @@
     "HaoYue": {
       "name": "皓月当年",
       "role": "深度坍缩者",
-      "avatar": "/assets/images/faces/player/default.jpg"
+      "avatar": "/assets/images/faces/player/皓月当年.jpg"
     }
   }
 }
