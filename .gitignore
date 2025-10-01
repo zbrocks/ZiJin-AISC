@@ -1,5 +1,6 @@
 # macOS
 ._*
+.DS_Store
 .Spotlight-V100
 .Trashes
 ehthumbs.db
