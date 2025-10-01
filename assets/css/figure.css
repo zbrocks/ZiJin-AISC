@@ -244,3 +244,169 @@
 }
 
 /* 其他样式保持不变... */
+
+/* ===== 比赛详情页面样式 ===== */
+.rule-link-container {
+    margin-bottom: 2rem;
+}
+
+.rule-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 1rem 1.5rem;
+    background: var(--current-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    font-weight: 600;
+    border: 2px solid var(--current-primary);
+    box-shadow: 0 4px 12px rgba(134, 93, 187, 0.3);
+}
+
+/* 亮色主题下的特殊样式 */
+:root .rule-link {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border: 2px solid var(--primary-dark);
+    box-shadow: 0 4px 12px rgba(134, 93, 187, 0.4);
+}
+
+/* 暗色主题下保持原有样式 */
+[data-theme="dark"] .rule-link {
+    background: var(--current-primary);
+    border: 2px solid var(--current-primary);
+    box-shadow: 0 4px 12px rgba(166, 130, 226, 0.3);
+}
+
+.rule-link:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    color: white;
+    box-shadow: 0 6px 16px rgba(255, 107, 107, 0.4);
+}
+
+/* 队伍容器样式 */
+.team-section {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: var(--current-card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+}
+
+.team-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--current-border);
+}
+
+.team-header h3 {
+    color: var(--current-primary);
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.team-players {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* 比赛结果样式 */
+.results-section {
+    margin-bottom: 2rem;
+}
+
+.results-section h3 {
+    color: var(--current-primary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.results-table {
+    background: var(--current-card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+}
+
+.result-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--current-border);
+    transition: background-color 0.3s ease;
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.result-item:hover {
+    background: rgba(134, 93, 187, 0.05);
+}
+
+.result-item.champion {
+    background: linear-gradient(135deg, var(--current-gold), #FFE55C);
+    color: #333;
+    font-weight: bold;
+}
+
+.result-item.champion:hover {
+    background: linear-gradient(135deg, #FFE55C, var(--current-gold));
+}
+
+.result-item .rank {
+    font-weight: bold;
+    font-size: 1.2rem;
+    min-width: 40px;
+    text-align: center;
+    color: var(--current-primary);
+}
+
+.result-item.champion .rank {
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.result-item .team-name {
+    flex-grow: 1;
+    margin-left: 1rem;
+    font-weight: 600;
+}
+
+.result-item .score {
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.result-item.champion .score {
+    color: #333;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .team-players {
+        justify-content: center;
+    }
+    
+    .result-item {
+        padding: 0.8rem 1rem;
+    }
+    
+    .result-item .rank {
+        min-width: 30px;
+        font-size: 1rem;
+    }
+    
+    .result-item.champion .rank {
+        font-size: 1.2rem;
+    }
+}

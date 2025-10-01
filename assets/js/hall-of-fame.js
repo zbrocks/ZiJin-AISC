@@ -6,7 +6,7 @@ const playerData = {
         score: "决赛唯一幸存",
         event: "紫金杯#2",
         quote: "我是奎隆好大儿",
-        avatar: "../assets/images/faces/player/Dialectic.jpg"
+        avatar: "/assets/images/faces/player/Dialectic.jpg"
     },
     P02: {
         name: "你的洛",
@@ -14,7 +14,7 @@ const playerData = {
         score: "初赛最高分",
         event: "紫金杯#2",
         quote: "他好像什么都没说...",
-        avatar: "../assets/images/faces/player/你的洛.jpg"
+        avatar: "/assets/images/faces/player/你的洛.jpg"
 
     },
 };
