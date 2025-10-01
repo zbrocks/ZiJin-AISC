@@ -3,7 +3,7 @@
     "Pan": {
       "name": "Pan",
       "role": "讲述者",
-      "avatar": "/assets/images/faces/player/default.jpg"
+      "avatar": "/assets/images/faces/player/Pan.jpg"
     },
     "MaoMao": {
       "name": "毛毛",
@@ -13,41 +13,41 @@
     "XianWei": {
       "name": "显微镜🔬",
       "role": "讲述者",
-      "avatar": "/assets/images/faces/player/default.jpg"
+      "avatar": "/assets/images/faces/player/显微镜.jpg"
     }
   },
   "亚军厨小队": {
     "NiYan": {
       "name": "泥岩小队践行者组长",
       "role": "创想家",
-      "avatar": "/assets/images/faces/player/default.jpg"
+      "avatar": "/assets/images/faces/player/泥岩小队践行者组长.jpg"
     },
     "NingMeng": {
       "name": "一颗柠檬精",
       "role": "讲述者",
-      "avatar": "/assets/images/faces/player/default.jpg"
+      "avatar": "/assets/images/faces/player/一颗柠檬精.jpg"
     },
     "HengYin": {
       "name": "恒音",
       "role": "讲述者",
-      "avatar": "/assets/images/faces/player/default.jpg"
+      "avatar": "/assets/images/faces/player/恒音.jpg"
     }
   },
   "厨圣": {
     "FeiNi": {
       "name": "妃你带我走吧😭😭😭",
       "role": "创想家",
-      "avatar": "/assets/images/faces/player/default.jpg"
+      "avatar": "/assets/images/faces/player/妃你带我走吧.jpg"
     },
     "QianHang": {
       "name": "前航远歌",
       "role": "讲述者",
-      "avatar": "/assets/images/faces/team/前航远歌.jpg"
+      "avatar": "/assets/images/faces/player/前航远歌.jpg"
     },
     "Natsuk": {
       "name": "Natsuk",
       "role": "讲述者",
-      "avatar": "/assets/images/faces/player/default.jpg"
+      "avatar": "/assets/images/faces/player/Natsuk.jpg"
     }
   },
   "蓝图测绘分队": {
@@ -59,19 +59,19 @@
     "ZZH": {
       "name": "ZZH",
       "role": "讲述者",
-      "avatar": "/assets/images/faces/player/default.jpg"
+      "avatar": "/assets/images/faces/player/ZZH.jpg"
     },
     "shawryao": {
       "name": "shawryao",
       "role": "讲述者",
-      "avatar": "/assets/images/faces/player/default.jpg"
+      "avatar": "/assets/images/faces/player/shawryao.jpg"
     }
   },
   "目光呆滞": {
     "ZhiHui": {
       "name": "智慧的龙",
       "role": "讲述者",
-      "avatar": "/assets/images/faces/player/default.jpg"
+      "avatar": "/assets/images/faces/player/智慧的龙.jpg"
     },
     "XueLang": {
       "name": "雪狼的利刃",
@@ -81,7 +81,7 @@
     "Salieri": {
       "name": "SalieriAmA",
       "role": "讲述者",
-      "avatar": "/assets/images/faces/player/default.jpg"
+      "avatar": "/assets/images/faces/player/SalieriAmA.jpg"
     }
   },
   "香橙蜜柑仙贝": {
@@ -93,7 +93,7 @@
     "LZ": {
       "name": "LZ",
       "role": "讲述者",
-      "avatar": "/assets/images/faces/player/default.jpg"
+      "avatar": "/assets/images/faces/player/LZ.jpg"
     },
     "ChengCha": {
       "name": "乘槎一问津",

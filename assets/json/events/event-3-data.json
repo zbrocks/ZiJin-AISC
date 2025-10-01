@@ -27,12 +27,12 @@
       "role": "神人",
       "avatar": "/assets/images/faces/player/雨落星辰.jpg"
     },
-    "MaoMao": {
+    "ChengCha": {
       "name": "乘槎一问津",
       "role": "讲述者",
       "avatar": "/assets/images/faces/player/乘槎一问津.jpg"
     },
-    "XianWei": {
+    "Dialectic": {
       "name": "Dialectic",
       "role": "创想家",
       "avatar": "/assets/images/faces/player/Dialectic.jpg"
@@ -40,7 +40,7 @@
     "LZ": {
       "name": "LZ",
       "role": "深度坍缩者",
-      "avatar": "/assets/images/faces/player/default.jpg"
+      "avatar": "/assets/images/faces/player/LZ.jpg"
     }
   },
   "沙阿会梦到弑君者吗": {
