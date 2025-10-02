@@ -370,22 +370,130 @@
     .scoreboard-header {
         flex-direction: column;
         align-items: flex-start;
+        gap: 15px;
+    }
+
+    .scoreboard-header h2 {
+        font-size: 1.5rem;
     }
 
     .scoreboard-filters {
         width: 100%;
+        flex-direction: column;
+        gap: 10px;
     }
 
     .filter-group {
         width: 100%;
+        min-width: unset;
+    }
+
+    .filter-select, .filter-input {
+        padding: 12px 15px;
+        font-size: 0.95rem;
     }
 
     .scoreboard-table {
         display: block;
         overflow-x: auto;
+        white-space: nowrap;
+        border-radius: var(--border-radius);
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: var(--current-primary) var(--current-border);
+    }
+
+    .scoreboard-table::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .scoreboard-table::-webkit-scrollbar-track {
+        background: var(--current-border);
+        border-radius: 3px;
+    }
+
+    .scoreboard-table::-webkit-scrollbar-thumb {
+        background: var(--current-primary);
+        border-radius: 3px;
+    }
+
+    .scoreboard-table::-webkit-scrollbar-thumb:hover {
+        background: var(--primary-dark);
+    }
+
+    .scoreboard-table th,
+    .scoreboard-table td {
+        padding: 12px 10px;
+        font-size: 0.9rem;
+        min-width: 100px;
+    }
+
+    .scoreboard-table th {
+        position: sticky;
+        top: 0;
+        z-index: 10;
     }
 
     .scoreboard-table th::after {
         display: none;
+    }
+
+    .status-badge {
+        padding: 3px 8px;
+        font-size: 0.8rem;
+    }
+
+    .score-value {
+        font-size: 1rem;
+    }
+
+    /* 移动设备特殊处理：表格行变为卡片式显示 */
+    .scoreboard-mobile-view {
+        display: none;
+    }
+
+    @media (max-width: 480px) {
+        .scoreboard-table {
+            display: none;
+        }
+
+        .scoreboard-mobile-view {
+            display: block;
+        }
+
+        .mobile-player-card {
+            background: var(--current-card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--current-primary);
+        }
+
+        .mobile-player-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .mobile-player-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .mobile-label {
+            font-weight: 600;
+            color: var(--current-meta);
+        }
+
+        .mobile-value {
+            color: var(--current-text);
+            font-weight: 500;
+        }
+
+        .mobile-value.score {
+            font-weight: 700;
+            color: var(--current-primary);
+        }
     }
 }
