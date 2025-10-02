@@ -134,26 +134,120 @@ class FAQManager {
 
     formatAnswer(answer) {
         // 将Markdown格式转换为HTML
-        let html = answer
-            // 处理粗体
-            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-            // 处理链接
-            .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
-            // 处理代码
-            .replace(/`([^`]+)`/g, '<code>$1</code>')
-            // 处理换行
-            .replace(/\n\n/g, '</p><p>')
-            .replace(/\n/g, '<br>');
-
-        // 处理列表
-        html = html.replace(/^(\d+\.\s+.+)$/gm, '<li>$1</li>');
-        html = html.replace(/^(-\s+.+)$/gm, '<li>$1</li>');
-
-        // 包装段落
-        if (!html.startsWith('<')) {
-            html = '<p>' + html + '</p>';
+        let html = answer;
+        
+        // 处理加粗文本 - 确保只匹配完整的**对
+        html = html.replace(/\*\*([^\*]+)\*\*/g, '<strong>$1</strong>');
+        
+        // 处理链接
+        html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+        
+        // 处理代码
+        html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+        
+        // 处理多级列表 - 先处理嵌套结构
+        // 1. 识别并处理嵌套列表标记
+        const lines = html.split('\n');
+        let inOrderedList = false;
+        let inUnorderedList = false;
+        let processedLines = [];
+        
+        for (let i = 0; i < lines.length; i++) {
+            let line = lines[i].trim();
+            
+            // 跳过空行
+            if (line === '') {
+                if (inOrderedList || inUnorderedList) {
+                    // 列表中的空行结束当前列表
+                    processedLines.push(inOrderedList ? '</ol>' : '</ul>');
+                    inOrderedList = false;
+                    inUnorderedList = false;
+                }
+                processedLines.push('');
+                continue;
+            }
+            
+            // 处理有序列表项
+            if (/^\d+\.\s/.test(line)) {
+                if (!inOrderedList && !inUnorderedList) {
+                    processedLines.push('<ol>');
+                    inOrderedList = true;
+                } else if (inUnorderedList) {
+                    processedLines.push('</ul>');
+                    processedLines.push('<ol>');
+                    inUnorderedList = false;
+                    inOrderedList = true;
+                }
+                // 移除列表标记并添加列表项
+                line = line.replace(/^\d+\.\s/, '');
+                processedLines.push(`<li>${line}</li>`);
+            }
+            // 处理无序列表项
+            else if (/^-\s/.test(line)) {
+                if (!inUnorderedList && !inOrderedList) {
+                    processedLines.push('<ul>');
+                    inUnorderedList = true;
+                } else if (inOrderedList) {
+                    processedLines.push('</ol>');
+                    processedLines.push('<ul>');
+                    inOrderedList = false;
+                    inUnorderedList = true;
+                }
+                // 移除列表标记并添加列表项
+                line = line.replace(/^-\s/, '');
+                processedLines.push(`<li>${line}</li>`);
+            }
+            // 处理嵌套列表项 (缩进的列表)
+            else if (/^(\s{4,})-\s/.test(line) || /^(\s{4,})\d+\.\s/.test(line)) {
+                const match = line.match(/^(\s{4,})/);
+                const indentLevel = Math.floor(match[1].length / 4);
+                const content = line.trim();
+                
+                if (/^-\s/.test(content)) {
+                    const listItem = content.replace(/^-\s/, '');
+                    processedLines.push(`<ul class="nested-list nested-level-${indentLevel}"><li>${listItem}</li></ul>`);
+                } else if (/^\d+\.\s/.test(content)) {
+                    const listItem = content.replace(/^\d+\.\s/, '');
+                    processedLines.push(`<ol class="nested-list nested-level-${indentLevel}"><li>${listItem}</li></ol>`);
+                }
+            }
+            // 普通段落内容
+            else {
+                if (inOrderedList || inUnorderedList) {
+                    // 非列表项结束当前列表
+                    processedLines.push(inOrderedList ? '</ol>' : '</ul>');
+                    inOrderedList = false;
+                    inUnorderedList = false;
+                }
+                processedLines.push(line);
+            }
         }
-
+        
+        // 确保关闭所有打开的列表
+        if (inOrderedList) {
+            processedLines.push('</ol>');
+        } else if (inUnorderedList) {
+            processedLines.push('</ul>');
+        }
+        
+        // 重新组合处理后的行
+        html = processedLines.join('\n');
+        
+        // 处理段落和换行
+        const paragraphs = html.split('\n\n');
+        const formattedParagraphs = paragraphs.map(para => {
+            // 如果段落已经包含HTML标签，不添加额外的p标签
+            if (para.trim() === '' || para.match(/^<(ul|ol|li|table|blockquote|pre)/i)) {
+                return para;
+            }
+            return `<p>${para}</p>`;
+        });
+        
+        html = formattedParagraphs.join('\n\n');
+        
+        // 处理剩余的换行符（在段落内）
+        html = html.replace(/\n(?!<\/?[a-z])/g, '<br>');
+        
         return html;
     }
 
