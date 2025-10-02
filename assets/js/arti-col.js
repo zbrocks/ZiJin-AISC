@@ -2,19 +2,19 @@
 document.addEventListener('DOMContentLoaded', function () {
     // 初始化页面动画
     initPageAnimations();
-    
+
     // 初始化统计数字动画
     initCounterAnimations();
-    
+
     // 初始化卡片悬停效果
     initCardHoverEffects();
-    
+
     // 初始化时间线动画
     initTimelineAnimations();
-    
+
     // 初始化订阅功能
     initSubscriptionFeature();
-    
+
     // 初始化分享功能
     initShareFeature();
 });
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // 页面加载动画
 function initPageAnimations() {
     const elements = document.querySelectorAll('.page-header, .stat-card, .article-card, .timeline-item, .subscription-card');
-    
+
     // 使用 Intersection Observer 实现滚动动画
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
@@ -50,12 +50,12 @@ function initPageAnimations() {
 // 统计数字动画
 function initCounterAnimations() {
     const counters = document.querySelectorAll('.stat-number');
-    
+
     const animateCounter = (counter) => {
         const target = parseInt(counter.textContent.replace(/[^\d]/g, '')) || 0;
         const increment = Math.max(target / 50, 1);
         let current = 0;
-        
+
         const timer = setInterval(() => {
             current += increment;
             if (current >= target) {
@@ -84,25 +84,25 @@ function initCounterAnimations() {
 // 卡片悬停效果增强
 function initCardHoverEffects() {
     const cards = document.querySelectorAll('.article-card, .stat-card');
-    
+
     cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
+        card.addEventListener('mouseenter', function () {
             if (!this.classList.contains('placeholder')) {
                 this.style.transform = 'translateY(-8px) scale(1.02)';
             }
         });
-        
-        card.addEventListener('mouseleave', function() {
+
+        card.addEventListener('mouseleave', function () {
             this.style.transform = 'translateY(0) scale(1)';
         });
-        
+
         // 为特色文章添加特殊效果
         if (card.classList.contains('featured')) {
-            card.addEventListener('mouseenter', function() {
+            card.addEventListener('mouseenter', function () {
                 this.style.boxShadow = '0 20px 50px rgba(255, 215, 0, 0.3)';
             });
-            
-            card.addEventListener('mouseleave', function() {
+
+            card.addEventListener('mouseleave', function () {
                 this.style.boxShadow = '';
             });
         }
@@ -112,23 +112,23 @@ function initCardHoverEffects() {
 // 时间线动画
 function initTimelineAnimations() {
     const timelineItems = document.querySelectorAll('.timeline-item');
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate-in');
-                
+
                 // 为时间线内容添加动画
                 const content = entry.target.querySelector('.timeline-content');
                 const marker = entry.target.querySelector('.timeline-marker');
-                
+
                 setTimeout(() => {
                     marker.style.transform = 'scale(1.1)';
                     setTimeout(() => {
                         marker.style.transform = 'scale(1)';
                     }, 200);
                 }, 300);
-                
+
                 observer.unobserve(entry.target);
             }
         });
@@ -144,10 +144,10 @@ function initTimelineAnimations() {
 
 // 分享功能
 function initShareFeature() {
-    window.shareArticle = function(title) {
+    window.shareArticle = function (title) {
         const url = window.location.href;
-        const text = `推荐阅读：${title}`;
-        
+        const text = `推荐阅读:${title}`;
+
         if (navigator.share) {
             // 使用原生分享API
             navigator.share({
@@ -173,7 +173,7 @@ function fallbackShare(title, url) {
                 navigator.clipboard.writeText(url).then(() => {
                     showNotification('链接已复制到剪贴板', 'success');
                 }).catch(() => {
-                    showNotification('复制失败，请手动复制', 'error');
+                    showNotification('复制失败,请手动复制', 'error');
                 });
             }
         },
@@ -192,7 +192,7 @@ function fallbackShare(title, url) {
             }
         }
     ];
-    
+
     showShareModal(shareOptions);
 }
 
@@ -216,20 +216,20 @@ function showShareModal(options) {
             </div>
         </div>
     `;
-    
+
     document.body.appendChild(modal);
-    
+
     // 绑定事件
     modal.querySelector('.close-btn').addEventListener('click', () => {
         document.body.removeChild(modal);
     });
-    
+
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             document.body.removeChild(modal);
         }
     });
-    
+
     options.forEach((option, index) => {
         modal.querySelector(`[data-action="${option.name}"]`).addEventListener('click', () => {
             option.action();
@@ -248,14 +248,14 @@ function showNotification(message, type = 'info') {
             <span>${message}</span>
         </div>
     `;
-    
+
     document.body.appendChild(notification);
-    
+
     // 显示动画
     setTimeout(() => {
         notification.classList.add('show');
     }, 100);
-    
+
     // 自动隐藏
     setTimeout(() => {
         notification.classList.remove('show');

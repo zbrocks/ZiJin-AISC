@@ -60,9 +60,9 @@ function addScrollToTop() {
         z-index: 1000;
         box-shadow: 0 4px 15px rgba(134, 93, 187, 0.3);
     `;
-    
+
     document.body.appendChild(scrollBtn);
-    
+
     // 滚动监听
     window.addEventListener('scroll', () => {
         if (window.pageYOffset > 300) {
@@ -73,7 +73,7 @@ function addScrollToTop() {
             scrollBtn.style.visibility = 'hidden';
         }
     });
-    
+
     // 点击滚动到顶部
     scrollBtn.addEventListener('click', () => {
         window.scrollTo({
@@ -81,12 +81,12 @@ function addScrollToTop() {
             behavior: 'smooth'
         });
     });
-    
+
     // 悬停效果
     scrollBtn.addEventListener('mouseenter', () => {
         scrollBtn.style.transform = 'translateY(-3px) scale(1.1)';
     });
-    
+
     scrollBtn.addEventListener('mouseleave', () => {
         scrollBtn.style.transform = 'translateY(0) scale(1)';
     });
@@ -102,8 +102,8 @@ function initKeyboardNavigation() {
                 behavior: 'smooth'
             });
         }
-        
-        // 空格键暂停/继续动画（如果有的话）
+
+        // 空格键暂停/继续动画(如果有的话)
         if (e.key === ' ' && e.target === document.body) {
             e.preventDefault();
             // 可以在这里添加暂停动画的逻辑

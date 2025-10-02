@@ -5,7 +5,7 @@ class FAQManager {
         this.faqData = [];
         this.filteredData = [];
         this.searchTerm = '';
-        
+
         this.init();
     }
 
@@ -41,20 +41,20 @@ class FAQManager {
         let currentQuestion = null;
         let currentAnswer = [];
         let currentCategory = '通项';
-        
+
         for (let i = 0; i < lines.length; i++) {
             const line = lines[i].trim();
-            
-            // 检测主标题（分类）
+
+            // 检测主标题(分类)
             if (line.startsWith('# ')) {
                 const title = line.substring(2).trim();
                 if (title.includes('FAQs')) {
-                    currentCategory = title.replace('FAQs', '').replace(/[（）()]/g, '').trim() || '通项';
+                    currentCategory = title.replace('FAQs', '').replace(/[()()]/g, '').trim() || '通项';
                 }
                 continue;
             }
-            
-            // 检测问题（二级标题）
+
+            // 检测问题(二级标题)
             if (line.startsWith('## ')) {
                 // 保存上一个问题
                 if (currentQuestion) {
@@ -65,19 +65,19 @@ class FAQManager {
                         id: this.generateId(currentQuestion)
                     });
                 }
-                
+
                 // 开始新问题
                 currentQuestion = line.substring(3).trim();
                 currentAnswer = [];
                 continue;
             }
-            
+
             // 收集答案内容
             if (currentQuestion && line) {
                 currentAnswer.push(line);
             }
         }
-        
+
         // 保存最后一个问题
         if (currentQuestion) {
             this.faqData.push({
@@ -87,7 +87,7 @@ class FAQManager {
                 id: this.generateId(currentQuestion)
             });
         }
-        
+
         this.filteredData = [...this.faqData];
     }
 
@@ -105,17 +105,17 @@ class FAQManager {
 
     renderFAQs() {
         const faqList = document.getElementById('faqList');
-        
+
         if (this.filteredData.length === 0) {
             faqList.innerHTML = `
                 <div class="no-results">
                     <i class="fas fa-search"></i>
-                    <p>没有找到匹配的问题，请尝试其他关键词。</p>
+                    <p>没有找到匹配的问题,请尝试其他关键词.</p>
                 </div>
             `;
             return;
         }
-        
+
         faqList.innerHTML = this.filteredData.map(faq => `
             <div class="faq-item" data-category="${faq.category}">
                 <button class="faq-question" data-id="${faq.id}">
@@ -144,22 +144,22 @@ class FAQManager {
             // 处理换行
             .replace(/\n\n/g, '</p><p>')
             .replace(/\n/g, '<br>');
-        
+
         // 处理列表
         html = html.replace(/^(\d+\.\s+.+)$/gm, '<li>$1</li>');
         html = html.replace(/^(-\s+.+)$/gm, '<li>$1</li>');
-        
+
         // 包装段落
         if (!html.startsWith('<')) {
             html = '<p>' + html + '</p>';
         }
-        
+
         return html;
     }
 
     highlightSearchTerm(text) {
         if (!this.searchTerm) return text;
-        
+
         const regex = new RegExp(`(${this.escapeRegExp(this.searchTerm)})`, 'gi');
         return text.replace(regex, '<span class="highlight">$1</span>');
     }
@@ -173,10 +173,10 @@ class FAQManager {
             const matchesSearch = !this.searchTerm ||
                 faq.question.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
                 faq.answer.toLowerCase().includes(this.searchTerm.toLowerCase());
-            
+
             return matchesSearch;
         });
-        
+
         this.renderFAQs();
     }
 
@@ -195,16 +195,16 @@ class FAQManager {
             if (button) {
                 const faqItem = button.closest('.faq-item');
                 const answer = faqItem.querySelector('.faq-answer');
-                
+
                 if (!answer) {
                     console.error('找不到对应的答案元素');
                     return;
                 }
-                
+
                 // 切换状态
                 button.classList.toggle('active');
                 answer.classList.toggle('active');
-                
+
                 // 滚动到问题位置
                 if (button.classList.contains('active')) {
                     setTimeout(() => {
@@ -225,7 +225,7 @@ class FAQManager {
                 e.preventDefault();
                 searchInput.focus();
             }
-            
+
             // ESC 清空搜索
             if (e.key === 'Escape' && document.activeElement === searchInput) {
                 searchInput.value = '';
@@ -238,7 +238,7 @@ class FAQManager {
     hideLoading() {
         const loadingSpinner = document.getElementById('loadingSpinner');
         const faqList = document.getElementById('faqList');
-        
+
         loadingSpinner.style.display = 'none';
         faqList.style.display = 'block';
     }
@@ -246,7 +246,7 @@ class FAQManager {
     showError() {
         const loadingSpinner = document.getElementById('loadingSpinner');
         const errorMessage = document.getElementById('errorMessage');
-        
+
         loadingSpinner.style.display = 'none';
         errorMessage.style.display = 'block';
     }

@@ -120,19 +120,19 @@ class EventManager {
     getInitials(name) {
         if (!name) return '?';
 
-        // 对于中文名字，取第一个字符
+        // 对于中文名字,取第一个字符
         if (/[\u4e00-\u9fa5]/.test(name)) {
             return name.charAt(0);
         }
 
-        // 对于英文名字，取首字母
+        // 对于英文名字,取首字母
         return name.split(' ').map(word => word.charAt(0)).join('').toUpperCase();
     }
 
     // 根据选手姓名和队伍名称查找选手数据
     findPlayerData(playerName, teamName) {
         if (!this.eventData[teamName]) return null;
-        
+
         const players = this.eventData[teamName];
         for (const playerKey in players) {
             if (players[playerKey].name === playerName) {
@@ -202,13 +202,13 @@ class EventManager {
             modalAvatar.style.display = 'block';
             modalAvatar.parentElement.innerHTML = '<img class="member-avatar" id="modalMemberAvatar">';
             const newModalAvatar = document.getElementById('modalMemberAvatar');
-            
-            // 获取当前选手的实际头像路径，而不是依赖小卡片的状态
+
+            // 获取当前选手的实际头像路径,而不是依赖小卡片的状态
             const currentPlayerData = this.findPlayerData(playerName, teamName);
             const actualAvatarSrc = currentPlayerData ? currentPlayerData.avatar : null;
-            
+
             if (actualAvatarSrc && actualAvatarSrc !== '') {
-                // 如果有头像路径（包括默认头像），使用该头像
+                // 如果有头像路径(包括默认头像),使用该头像
                 newModalAvatar.src = actualAvatarSrc;
                 newModalAvatar.alt = playerName;
                 newModalAvatar.onerror = () => {
@@ -218,7 +218,7 @@ class EventManager {
                     newModalAvatar.parentElement.innerHTML = initials;
                 };
             } else {
-                // 如果没有头像路径，显示首字母
+                // 如果没有头像路径,显示首字母
                 newModalAvatar.style.display = 'none';
                 newModalAvatar.parentElement.innerHTML = this.getInitials(playerName);
             }

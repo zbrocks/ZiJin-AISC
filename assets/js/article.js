@@ -2,19 +2,19 @@
 document.addEventListener('DOMContentLoaded', function () {
     // 初始化页面动画
     initPageAnimations();
-    
+
     // 初始化阅读进度条
     initReadingProgress();
-    
+
     // 初始化文章交互功能
     initArticleInteractions();
-    
+
     // 初始化分享功能
     initShareFeature();
-    
+
     // 初始化收藏功能
     initBookmarkFeature();
-    
+
     // 初始化滚动效果
     initScrollEffects();
 });
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // 页面加载动画
 function initPageAnimations() {
     const elements = document.querySelectorAll('.breadcrumb, .article-content, .content-section, .principle-card, .moment-card, .plan-item');
-    
+
     // 使用 Intersection Observer 实现滚动动画
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
@@ -54,20 +54,20 @@ function initReadingProgress() {
     progressBar.className = 'reading-progress';
     progressBar.innerHTML = '<div class="progress-fill"></div>';
     document.body.appendChild(progressBar);
-    
+
     const progressFill = progressBar.querySelector('.progress-fill');
     const articleBody = document.querySelector('.article-body');
-    
+
     if (articleBody) {
         window.addEventListener('scroll', () => {
             const articleTop = articleBody.offsetTop;
             const articleHeight = articleBody.offsetHeight;
             const windowHeight = window.innerHeight;
             const scrollTop = window.pageYOffset;
-            
+
             const start = articleTop - windowHeight / 2;
             const end = articleTop + articleHeight - windowHeight / 2;
-            
+
             if (scrollTop >= start && scrollTop <= end) {
                 const progress = (scrollTop - start) / (end - start);
                 progressFill.style.width = Math.min(progress * 100, 100) + '%';
@@ -85,9 +85,9 @@ function initArticleInteractions() {
     // 为时间线事件添加点击展开功能
     const timelineEvents = document.querySelectorAll('.timeline-event');
     timelineEvents.forEach(event => {
-        event.addEventListener('click', function() {
+        event.addEventListener('click', function () {
             this.classList.toggle('expanded');
-            
+
             // 添加展开动画
             const content = this.querySelector('.event-content');
             if (this.classList.contains('expanded')) {
@@ -97,27 +97,27 @@ function initArticleInteractions() {
             }
         });
     });
-    
+
     // 为理念卡片添加翻转效果
     const principleCards = document.querySelectorAll('.principle-card');
     principleCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
+        card.addEventListener('mouseenter', function () {
             this.style.transform = 'translateY(-5px) rotateY(5deg)';
         });
-        
-        card.addEventListener('mouseleave', function() {
+
+        card.addEventListener('mouseleave', function () {
             this.style.transform = 'translateY(0) rotateY(0)';
         });
     });
-    
+
     // 为精彩瞬间卡片添加悬停效果
     const momentCards = document.querySelectorAll('.moment-card');
     momentCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
+        card.addEventListener('mouseenter', function () {
             this.style.background = 'linear-gradient(135deg, rgba(134, 93, 187, 0.1), rgba(134, 93, 187, 0.05))';
         });
-        
-        card.addEventListener('mouseleave', function() {
+
+        card.addEventListener('mouseleave', function () {
             this.style.background = '';
         });
     });
@@ -125,10 +125,10 @@ function initArticleInteractions() {
 
 // 分享功能
 function initShareFeature() {
-    window.shareArticle = function(title) {
+    window.shareArticle = function (title) {
         const url = window.location.href;
-        const text = `推荐阅读：${title}`;
-        
+        const text = `推荐阅读:${title}`;
+
         if (navigator.share) {
             // 使用原生分享API
             navigator.share({
@@ -193,7 +193,7 @@ function fallbackShare(title, url) {
             }
         }
     ];
-    
+
     showShareModal(shareOptions);
 }
 
@@ -217,25 +217,25 @@ function showShareModal(options) {
             </div>
         </div>
     `;
-    
+
     document.body.appendChild(modal);
-    
+
     // 添加显示动画
     setTimeout(() => {
         modal.classList.add('show');
     }, 10);
-    
+
     // 绑定事件
     modal.querySelector('.close-btn').addEventListener('click', () => {
         closeModal(modal);
     });
-    
+
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             closeModal(modal);
         }
     });
-    
+
     options.forEach((option, index) => {
         modal.querySelector(`[data-action="${option.name}"]`).addEventListener('click', () => {
             option.action();
@@ -258,8 +258,8 @@ function closeModal(modal) {
 window.addEventListener('load', () => {
     // 添加页面加载完成的淡入效果
     document.body.style.opacity = '1';
-    
-    // 初始化文章目录（如果需要）
+
+    // 初始化文章目录(如果需要)
     generateTableOfContents();
 });
 
@@ -273,19 +273,19 @@ function generateTableOfContents() {
             <h4><i class="fas fa-list"></i> 文章目录</h4>
             <ul>
                 ${Array.from(headings).map((heading, index) => {
-                    const id = `section-${index}`;
-                    heading.id = id;
-                    return `<li><a href="#${id}">${heading.textContent}</a></li>`;
-                }).join('')}
+            const id = `section-${index}`;
+            heading.id = id;
+            return `<li><a href="#${id}">${heading.textContent}</a></li>`;
+        }).join('')}
             </ul>
         `;
-        
+
         // 插入到文章介绍后面
         const articleIntro = document.querySelector('.article-intro');
         if (articleIntro) {
             articleIntro.parentNode.insertBefore(toc, articleIntro.nextSibling);
         }
-        
+
         // 添加平滑滚动
         toc.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', (e) => {
