@@ -5,6 +5,8 @@ class FAQManager {
         this.faqData = [];
         this.filteredData = [];
         this.searchTerm = '';
+        this.activeCategory = 'all';
+        this.categories = {};
 
         this.init();
     }
@@ -40,21 +42,20 @@ class FAQManager {
         const lines = markdown.split('\n');
         let currentQuestion = null;
         let currentAnswer = [];
-        let currentCategory = '通项';
+        let currentMainCategory = '';
+        let currentSubCategory = '';
+        let currentCategory = '';
 
         for (let i = 0; i < lines.length; i++) {
             const line = lines[i].trim();
 
-            // 检测主标题(分类)
+            // 检测主标题(网站标题)
             if (line.startsWith('# ')) {
-                const title = line.substring(2).trim();
-                if (title.includes('FAQs')) {
-                    currentCategory = title.replace('FAQs', '').replace(/[()()]/g, '').trim() || '通项';
-                }
+                // 跳过主标题，不做分类处理
                 continue;
             }
 
-            // 检测问题(二级标题)
+            // 检测二级标题(主分类)
             if (line.startsWith('## ')) {
                 // 保存上一个问题
                 if (currentQuestion) {
@@ -62,12 +63,37 @@ class FAQManager {
                         question: currentQuestion,
                         answer: currentAnswer.join('\n').trim(),
                         category: currentCategory,
+                        mainCategory: currentMainCategory,
+                        subCategory: currentSubCategory,
+                        id: this.generateId(currentQuestion)
+                    });
+                }
+
+                currentMainCategory = line.substring(3).trim();
+                currentCategory = currentMainCategory;
+                currentQuestion = null;
+                currentAnswer = [];
+                continue;
+            }
+
+            // 检测三级标题(问题)
+            if (line.startsWith('### ')) {
+                // 保存上一个问题
+                if (currentQuestion) {
+                    this.faqData.push({
+                        question: currentQuestion,
+                        answer: currentAnswer.join('\n').trim(),
+                        category: currentCategory,
+                        mainCategory: currentMainCategory,
+                        subCategory: currentSubCategory,
                         id: this.generateId(currentQuestion)
                     });
                 }
 
                 // 开始新问题
-                currentQuestion = line.substring(3).trim();
+                currentQuestion = line.substring(4).trim();
+                currentSubCategory = currentQuestion;
+                currentCategory = `${currentMainCategory}-${currentSubCategory}`;
                 currentAnswer = [];
                 continue;
             }
@@ -84,11 +110,87 @@ class FAQManager {
                 question: currentQuestion,
                 answer: currentAnswer.join('\n').trim(),
                 category: currentCategory,
+                mainCategory: currentMainCategory,
+                subCategory: currentSubCategory,
                 id: this.generateId(currentQuestion)
             });
         }
 
+        // 整理分类数据
+        this.organizeCategories();
         this.filteredData = [...this.faqData];
+    }
+
+    organizeCategories() {
+        this.categories = {};
+        
+        this.faqData.forEach(faq => {
+            if (!this.categories[faq.mainCategory]) {
+                this.categories[faq.mainCategory] = {
+                    name: faq.mainCategory,
+                    count: 0,
+                    subCategories: {}
+                };
+            }
+            
+            this.categories[faq.mainCategory].count++;
+            
+            if (!this.categories[faq.mainCategory].subCategories[faq.subCategory]) {
+                this.categories[faq.mainCategory].subCategories[faq.subCategory] = {
+                    name: faq.subCategory,
+                    count: 0,
+                    fullCategory: faq.category
+                };
+            }
+            
+            this.categories[faq.mainCategory].subCategories[faq.subCategory].count++;
+        });
+    }
+
+    renderCategories() {
+        const faqSidebar = document.querySelector('.faq-sidebar');
+        if (!faqSidebar) return;
+        
+        // 检查是否已有分类容器，如果没有则创建
+        let categoriesContainer = faqSidebar.querySelector('.faq-categories');
+        if (!categoriesContainer) {
+            categoriesContainer = document.createElement('div');
+            categoriesContainer.className = 'faq-categories';
+            faqSidebar.appendChild(categoriesContainer);
+        }
+        
+        // 清空并添加标题
+        categoriesContainer.innerHTML = `
+            <h3><i class="fas fa-tags"></i> 问题分类</h3>
+            <ul class="main-categories">
+                <li>
+                    <a href="#" data-category="all" class="category-link ${this.activeCategory === 'all' ? 'active' : ''}">
+                        <i class="fas fa-layer-group"></i> 全部问题
+                    </a>
+                </li>
+            </ul>
+        `;
+        
+        const mainCategoriesList = categoriesContainer.querySelector('.main-categories');
+        
+        // 添加主分类和子分类
+        Object.keys(this.categories).forEach(mainCatName => {
+            const mainCategory = this.categories[mainCatName];
+            
+            // 创建主分类项
+            const mainLi = document.createElement('li');
+            mainLi.className = 'main-category-item';
+            mainLi.innerHTML = `
+                <a href="#" data-category="${mainCatName}" class="category-link main-category-link ${this.activeCategory === mainCatName ? 'active' : ''}">
+                    ${mainCatName}
+                </a>
+            `;
+            
+            mainCategoriesList.appendChild(mainLi);
+            
+
+        });
+
     }
 
     generateId(text) {
@@ -102,6 +204,44 @@ class FAQManager {
         return `${baseId}-${timestamp}-${random}`;
     }
 
+
+    // 处理懒加载图片
+    handleLazyImages() {
+        const lazyImages = document.querySelectorAll('.lazy-image');
+        
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        
+                        // 图片加载完成后添加loaded类以触发CSS过渡效果
+                        img.onload = () => {
+                            img.classList.add('loaded');
+                        };
+                        
+                        // 对于已经加载完成的图片，立即添加loaded类
+                        if (img.complete) {
+                            img.classList.add('loaded');
+                        }
+                        
+                        observer.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: '0px 0px 200px 0px' // 提前200px触发加载
+            });
+            
+            lazyImages.forEach(img => {
+                observer.observe(img);
+            });
+        } else {
+            // 降级处理：对于不支持IntersectionObserver的浏览器，直接加载所有图片
+            lazyImages.forEach(img => {
+                img.classList.add('loaded');
+            });
+        }
+    }
 
     renderFAQs() {
         const faqList = document.getElementById('faqList');
@@ -117,19 +257,22 @@ class FAQManager {
         }
 
         faqList.innerHTML = this.filteredData.map(faq => `
-            <div class="faq-item" data-category="${faq.category}">
+            <div class="faq-item" data-category="${faq.category}" data-main-category="${faq.mainCategory}">
                 <button class="faq-question" data-id="${faq.id}">
-                    <span>${this.highlightSearchTerm(faq.question)}</span>
+                    <span class="tag">${faq.mainCategory}</span>
+                    <span class="faq-question-text">${this.highlightSearchTerm(faq.question)}</span>
                     <i class="fas fa-chevron-down faq-toggle"></i>
                 </button>
                 <div class="faq-answer" id="answer-${faq.id}">
                     <div class="faq-answer-content">
-                        <div class="faq-category-tag">${faq.category}</div>
                         ${this.formatAnswer(faq.answer)}
                     </div>
                 </div>
             </div>
         `).join('');
+        
+        // 渲染完成后处理懒加载图片
+        this.handleLazyImages();
     }
 
     formatAnswer(answer) {
@@ -141,6 +284,9 @@ class FAQManager {
         
         // 处理链接
         html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+        
+        // 处理图片并添加懒加载属性
+        html = html.replace(/!\[([^\]]+)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" loading="lazy" class="lazy-image" />');
         
         // 处理代码
         html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
@@ -268,10 +414,30 @@ class FAQManager {
                 faq.question.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
                 faq.answer.toLowerCase().includes(this.searchTerm.toLowerCase());
 
-            return matchesSearch;
+            const matchesCategory = this.activeCategory === 'all' ||
+                faq.category === this.activeCategory ||
+                faq.mainCategory === this.activeCategory;
+
+            return matchesSearch && matchesCategory;
         });
 
         this.renderFAQs();
+    }
+
+    setActiveCategory(category) {
+        this.activeCategory = category;
+        this.filterFAQs();
+        
+        // 更新分类链接的激活状态
+        const categoryLinks = document.querySelectorAll('.category-link');
+        categoryLinks.forEach(link => {
+            if (link.dataset.category === category) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+
     }
 
     bindEvents() {
@@ -281,7 +447,6 @@ class FAQManager {
             this.searchTerm = e.target.value.trim();
             this.filterFAQs();
         });
-
 
         // FAQ展开/收起
         document.getElementById('faqList').addEventListener('click', (e) => {
@@ -312,6 +477,22 @@ class FAQManager {
             }
         });
 
+        // 分类点击事件
+        document.querySelector('.faq-sidebar').addEventListener('click', (e) => {
+            const categoryLink = e.target.closest('.category-link');
+            if (categoryLink) {
+                e.preventDefault();
+                const category = categoryLink.dataset.category;
+                this.setActiveCategory(category);
+                 
+                // 平滑滚动到页面顶部
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        });
+
         // 键盘快捷键
         document.addEventListener('keydown', (e) => {
             // Ctrl/Cmd + F 聚焦搜索框
@@ -335,6 +516,9 @@ class FAQManager {
 
         loadingSpinner.style.display = 'none';
         faqList.style.display = 'block';
+        
+        // 渲染分类
+        this.renderCategories();
     }
 
     showError() {

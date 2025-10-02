@@ -10,6 +10,28 @@
     flex: 0 0 280px;
     position: sticky;
     top: 120px;
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+}
+
+.faq-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.faq-sidebar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+}
+
+.faq-sidebar::-webkit-scrollbar-thumb {
+    background: var(--current-primary);
+    opacity: 0.5;
+    border-radius: 3px;
+}
+
+.faq-sidebar::-webkit-scrollbar-thumb:hover {
+    background: var(--current-primary);
+    opacity: 0.8;
 }
 
 .faq-search {
@@ -55,34 +77,69 @@
     margin-bottom: 1rem;
     font-size: 1.2rem;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.faq-categories ul {
+.main-categories {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.faq-categories li {
-    margin-bottom: 8px;
+.main-category-item {
+    margin-bottom: 6px;
 }
 
-.faq-categories a {
-    display: block;
+.sub-categories {
+    list-style: none;
+    padding: 0;
+    margin: 6px 0 6px 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.sub-categories.show {
+    max-height: 1000px;
+}
+
+.sub-category-item {
+    margin-bottom: 4px;
+}
+
+.category-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 10px 15px;
     color: var(--current-text);
     border-radius: 8px;
     transition: all 0.3s ease;
     font-weight: 500;
     position: relative;
+    text-decoration: none;
 }
 
-.faq-categories a:hover,
-.faq-categories a.active {
+.main-category-link {
+    font-weight: 600;
+}
+
+.sub-category-link {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+}
+
+.category-link:hover,
+.category-link.active {
     background: rgba(134, 93, 187, 0.1);
     color: var(--current-primary);
     transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(134, 93, 187, 0.15);
 }
 
-.faq-categories a.active::before {
+.category-link.active::before {
     content: '';
     position: absolute;
     left: 0;
@@ -92,6 +149,34 @@
     height: 20px;
     background: var(--current-primary);
     border-radius: 2px;
+}
+
+.sub-toggle {
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+    font-size: 0.8rem;
+    width: 16px;
+    display: inline-block;
+    text-align: center;
+}
+
+.sub-toggle.rotated {
+    transform: rotate(180deg);
+}
+
+.sub-toggle.rotated {
+    transform: rotate(180deg);
+}
+
+.category-count {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--current-primary);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: normal;
+    min-width: 20px;
+    text-align: center;
 }
 
 .faq-content {
@@ -156,10 +241,89 @@
     font-weight: 600;
     color: var(--current-text);
     transition: all 0.3s ease;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.faq-main-category {
+    display: inline-block;
+    padding: 4px 10px;
+    margin-right: 12px;
+    background-color: rgba(134, 93, 187, 0.1);
+    color: var(--current-primary);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.faq-question-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.faq-question-text:only-child {
+    flex: none;
 }
 
 .faq-question:hover {
     background: rgba(134, 93, 187, 0.05);
+    transform: translateX(3px);
+}
+
+.faq-question:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+}
+
+.faq-question::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(134, 93, 187, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.faq-question:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* 懒加载图片样式 */
+.lazy-image {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.lazy-image.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 为所有可点击元素添加通用交互类 */
+.interactive-element {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.interactive-element:hover {
+    filter: brightness(1.05);
+}
+
+.interactive-element:active {
+    transform: scale(0.98);
 }
 
 .faq-question.active {
@@ -272,6 +436,7 @@
         position: static;
         width: 100%;
         margin-bottom: 2rem;
+        max-height: none;
     }
     
     .faq-categories {
