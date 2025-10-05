@@ -63,15 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderScoreboard(data) {
         const tbody = document.getElementById('scoreboard-body');
-        const mobileViewContainer = document.querySelector('.scoreboard-mobile-view');
         if (!tbody) return;
-
-        // 确保移动视图容器存在
-        if (!mobileViewContainer) {
-            const container = document.createElement('div');
-            container.className = 'scoreboard-mobile-view';
-            tbody.parentNode.insertBefore(container, tbody.nextSibling);
-        }
 
         if (data.length === 0) {
             tbody.innerHTML = `
@@ -81,20 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     </td>
                 </tr>
             `;
-            
-            // 移动视图显示相同的空状态
-            const mobileView = document.querySelector('.scoreboard-mobile-view');
-            if (mobileView) {
-                mobileView.innerHTML = `
-                    <div class="no-results">
-                        <i class="fas fa-search"></i> 您期待的选手还在路上
-                    </div>
-                `;
-            }
             return;
         }
 
-        // 桌面视图：表格显示
         tbody.innerHTML = data.map(player => `
             <tr>
                 <td>${player.id}</td>
@@ -108,39 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td class="score-value">${player.score}</td>
             </tr>
         `).join('');
-
-        // 移动视图：卡片式显示
-        const mobileView = document.querySelector('.scoreboard-mobile-view');
-        if (mobileView) {
-            mobileView.innerHTML = data.map(player => `
-                <div class="mobile-player-card">
-                    <div class="mobile-player-row">
-                        <span class="mobile-label">选手ID</span>
-                        <span class="mobile-value">${player.id}</span>
-                    </div>
-                    <div class="mobile-player-row">
-                        <span class="mobile-label">所属队伍</span>
-                        <span class="mobile-value">${player.team}</span>
-                    </div>
-                    <div class="mobile-player-row">
-                        <span class="mobile-label">比赛时间</span>
-                        <span class="mobile-value">${player.time}</span>
-                    </div>
-                    <div class="mobile-player-row">
-                        <span class="mobile-label">比赛状态</span>
-                        <span class="mobile-value">
-                            <span class="status-badge ${statusClassMap[player.status]}">
-                                ${statusMap[player.status]}
-                            </span>
-                        </span>
-                    </div>
-                    <div class="mobile-player-row">
-                        <span class="mobile-label">最终得分</span>
-                        <span class="mobile-value score">${player.score}</span>
-                    </div>
-                </div>
-            `).join('');
-        }
     }
 
     function filterScoreboard() {
