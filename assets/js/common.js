@@ -111,12 +111,69 @@ function initKeyboardNavigation() {
     });
 }
 
+// 图片懒加载功能
+function initLazyLoading() {
+    // 检查浏览器是否支持IntersectionObserver
+    if ('IntersectionObserver' in window) {
+        const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const lazyImage = entry.target;
+                    
+                    // 如果图片有data-src属性，则设置为真实的src
+                    if (lazyImage.dataset.src) {
+                        lazyImage.src = lazyImage.dataset.src;
+                        lazyImage.removeAttribute('data-src');
+                    }
+                    
+                    // 停止观察已加载的图片
+                    lazyImageObserver.unobserve(lazyImage);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '100px 0px' });
+
+        // 观察所有带有data-src属性的图片
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            lazyImageObserver.observe(img);
+        });
+
+        // 提供一个公共方法，用于观察动态添加的图片
+        window.observeLazyImages = function(images) {
+            if (images && images.length) {
+                images.forEach(img => {
+                    if (img.dataset.src) {
+                        lazyImageObserver.observe(img);
+                    }
+                });
+            }
+        };
+    } else {
+        // 回退方案：立即加载所有图片
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+        });
+        
+        window.observeLazyImages = function(images) {
+            if (images && images.length) {
+                images.forEach(img => {
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                    }
+                });
+            }
+        };
+    }
+}
+
 // 初始化功能
 document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     updateThemeIcon();
     initKeyboardNavigation();
     initMobileMenu();
+    initLazyLoading(); // 添加图片懒加载初始化
 
     const themeToggle = document.getElementById('themeToggle');
     if (themeToggle) {

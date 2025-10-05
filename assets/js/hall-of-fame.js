@@ -58,10 +58,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         const avatar = card.querySelector('.member-avatar');
 
         if (player && player.avatar && avatar) {
-            avatar.src = player.avatar;
+            avatar.dataset.src = player.avatar;
             avatar.alt = player.name;
         } else {
             avatar.style.display = 'none';
+        }
+        
+        // 如果存在全局的懒加载观察函数，则使用它
+        if (window.observeLazyImages) {
+            window.observeLazyImages([avatar]);
         }
     });
 });

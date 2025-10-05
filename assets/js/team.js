@@ -60,11 +60,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         const avatar = card.querySelector('.member-avatar');
 
         if (member && member.avatar && avatar) {
-            avatar.src = member.avatar;
+            avatar.dataset.src = member.avatar;
             avatar.alt = member.name;
         } else {
             // 保持渐变背景作为备用
             avatar.style.display = 'none';
+        }
+        
+        // 如果存在全局的懒加载观察函数，则使用它
+        if (window.observeLazyImages) {
+            window.observeLazyImages([avatar]);
         }
     });
 });

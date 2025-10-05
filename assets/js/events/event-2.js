@@ -87,7 +87,7 @@ class EventManager {
         card.innerHTML = `
             <div class="small-card-face">
                 <div class="avatar-placeholder">
-                    <img class="member-avatar" src="${avatarSrc}" alt="${player.name}" 
+                    <img class="member-avatar" data-src="${avatarSrc}" alt="${player.name}" 
                          onerror="this.style.display='none'; this.parentElement.innerHTML='${this.getInitials(player.name)}';">
                 </div>
             </div>
@@ -97,6 +97,12 @@ class EventManager {
                 <div class="score">${player.role}</div>
             </div>
         `;
+        
+            // 如果存在全局的懒加载观察函数，则使用它
+            if (window.observeLazyImages) {
+                const avatarImg = card.querySelector('.member-avatar');
+                window.observeLazyImages([avatarImg]);
+            }
 
         return card;
     }
