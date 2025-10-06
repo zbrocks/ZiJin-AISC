@@ -1,0 +1,24 @@
+{
+  "name": "zijin-aisc",
+  "version": "v1.15.90",
+  "description": "明日方舟紫金杯集成战略赛事平台 - 为明日方舟紫金杯集成战略赛事提供在线报名、赛事管理、参赛者交流等功能的平台。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "live-server --port=3000",
+    "build": "./publish.sh",
+    "preview": "http-server ./dist -p 8080"
+  },
+  "keywords": [
+    "明日方舟",
+    "集成战略",
+    "赛事平台",
+    "紫金杯"
+  ],
+  "author": "明日方舟紫金杯赛事组",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  }
+}
