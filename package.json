@@ -1,6 +1,6 @@
 {
   "name": "zijin-aisc",
-  "version": "v1.15.90",
+  "version": "v1.16.91",
   "description": "明日方舟紫金杯集成战略赛事平台 - 为明日方舟紫金杯集成战略赛事提供在线报名、赛事管理、参赛者交流等功能的平台。",
   "main": "index.js",
   "scripts": {

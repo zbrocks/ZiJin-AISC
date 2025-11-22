@@ -1,0 +1,226 @@
+/* 公告展示页面样式 */
+
+.announcements-feed {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* 加载状态 */
+.loading-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    color: var(--current-meta);
+    font-size: 1.1rem;
+}
+
+.loading-spinner i {
+    margin-right: 10px;
+    font-size: 1.4rem;
+}
+
+/* 公告卡片样式 */
+.announcement-card {
+    background: var(--current-card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    margin-bottom: 30px;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.announcement-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 公告头部 - 包含发布者信息和时间 */
+.announcement-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.publisher-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    background: var(--current-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.publisher-info {
+    flex: 1;
+}
+
+.publisher-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--current-text);
+    margin-bottom: 4px;
+    display: block;
+}
+
+.publish-time {
+    color: var(--current-meta);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+
+.publish-time i {
+    margin-right: 5px;
+    font-size: 0.8rem;
+}
+
+/* 公告内容 */
+.announcement-content {
+    color: var(--current-text);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+}
+
+.announcement-content p {
+    margin-bottom: 15px;
+}
+
+.announcement-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* 公告底部信息 */
+.announcement-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid var(--current-border);
+    color: var(--current-meta);
+    font-size: 0.9rem;
+}
+
+.announcement-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.announcement-tag {
+    background: rgba(134, 93, 187, 0.1);
+    color: var(--current-primary);
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* 空状态 */
+.empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--current-meta);
+}
+
+.empty-state i {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.empty-state h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--current-text);
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .announcements-feed {
+        padding: 15px 0;
+    }
+    
+    .announcement-card {
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+    
+    .publisher-avatar {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .announcement-content {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    
+    .announcement-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .announcement-tags {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .announcement-card {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .publisher-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .publisher-name {
+        font-size: 1rem;
+    }
+    
+    .publish-time {
+        font-size: 0.85rem;
+    }
+    
+    .announcement-content {
+        font-size: 0.95rem;
+    }
+    
+    .announcement-tag {
+        font-size: 0.8rem;
+        padding: 3px 10px;
+    }
+}

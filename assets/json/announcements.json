@@ -1,0 +1,54 @@
+{
+  "announcements": [
+    {
+      "id": "1",
+      "content": "好想打卫戍协议啊...",
+      "publishTime": "2025-11-22T14:05:00Z",
+      "publisher": {
+        "name": "xXD",
+        "role": "站长"
+      },
+      "tags": ["欲望告知", "不重要"]
+    },
+    {
+      "id": "2",
+      "content": "时间过得好快...谁救救我.还要首考..",
+      "publishTime": "2025-11-21T15:30:00Z",
+      "publisher": {
+        "name": "xXD",
+        "role": "站长"
+      },
+      "tags": ["忧虑告知"]
+    },
+    {
+      "id": "3",
+      "content": "我草皮肤啊啊啊啊啊啊啊啊啊.你为何穿裤子orz",
+      "publishTime": "2025-10-28T09:00:00Z",
+      "publisher": {
+        "name": "xXD",
+        "role": "站长"
+      },
+      "tags": ["发电告知", "不重要"]
+    },
+    {
+      "id": "4",
+      "content": "紫金杯赛事网站已完成升级维护,现在可以正常访问了.本次升级优化了页面加载速度和稳定性,新增了以下功能:\n\n1. 比赛数据实时(?)更新\n2. 选手个人主页\n\n欢迎大家体验！",
+      "publishTime": "2025-10-01T16:20:00Z",
+      "publisher": {
+        "name": "xXD",
+        "role": "站长"
+      },
+      "tags": ["系统维护"]
+    },
+    {
+      "id": "5",
+      "content": "Whenfield?",
+      "publishTime": "2025-10-31T22:00:00Z",
+      "publisher": {
+        "name": "xXD",
+        "role": "站长"
+      },
+      "tags": ["明日方舟:终末地"]
+    }
+  ]
+}
